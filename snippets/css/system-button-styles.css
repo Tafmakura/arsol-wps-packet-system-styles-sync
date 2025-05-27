@@ -77,7 +77,7 @@ form input[type="submit"]:not(:disabled):hover,
 	color: var(--primary) !important;
 }
 
-.woocommerce button[name="apply_coupon"],
+.woocommerce main button[name="apply_coupon"],
 .woocommerce form.cart .added_to_cart,
 .fs_ticket_refresh_btn /* Fluent Support */{
 	background-color: #e4e7e9;
@@ -93,7 +93,7 @@ form input[type="submit"]:not(:disabled):hover,
 }
 
 .brxe-woocommerce-mini-cart a.button:hover,
-.woocommerce button[name="apply_coupon"]:hover,
+.woocommerce main button[name="apply_coupon"]:hover,
 .woocommerce form.cart .added_to_cart:hover{
 	background-color: var(--primary) !important;
 	color: #fff !important;
