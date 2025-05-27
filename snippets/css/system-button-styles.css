@@ -47,7 +47,7 @@ form input[type="submit"],
 }
 
 button.fcal_btn_submit,
-.woocommerce .button,
+.woocommerce main .button,
 form input[type="submit"],
 .wc-block-components-checkout-place-order-button,
 .el-button /* Fluent Support */,
