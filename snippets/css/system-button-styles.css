@@ -30,7 +30,10 @@
 /* Woocommerce */
 
 .woocommerce .button {
-	border-radius: var(--radius-xs)!important;
+	border-radius: var(--radius-xs);
+	background-color: var(--primary);
+	color: #fff;
+	text-decoration: none ;
 }
 
 
@@ -56,7 +59,6 @@ main form input[type="submit"],
 }
 
 button.fcal_btn_submit,
-.woocommerce .button,
 main form input[type="submit"],
 .wc-block-components-checkout-place-order-button,
 .el-button /* Fluent Support */,
