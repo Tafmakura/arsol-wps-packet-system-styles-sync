@@ -18,7 +18,7 @@ add_filter('arsol_wp_snippets_php_addon_files', 'arsol_wps_packet_system_styles_
 function arsol_wps_packet_system_styles_add_bricks_php($php_options) {
     $php_options[] = array(
         'name' => 'Plugin: Bricks Builder',
-        'file' => __DIR__ . '/../snippets/php/plugin-bricks.php'
+        'file' => __DIR__ . '/../snippets/php/plugin-bricks.php',
         'priority' => 99996
     );
     return $php_options;
