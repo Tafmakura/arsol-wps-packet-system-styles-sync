@@ -86,8 +86,9 @@ form input[type="submit"]:not(:disabled):hover,
 
 
 .button:disabled {
-  background-color: #ccc !important; /* Gray out the button */
+  background-color: #ccc ;
   cursor: not-allowed;
+  color: #000;
   opacity: 0.4;
 }
 
