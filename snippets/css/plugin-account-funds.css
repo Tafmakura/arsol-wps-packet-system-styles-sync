@@ -1,0 +1,39 @@
+.woocommerce-MyAccount-account-funds h2 {
+	margin-top: var(--space-m);
+}
+
+.woocommerce-MyAccount-account-funds form {
+	margin-top: var(--space-s);
+	display: inline-block;
+}
+
+.woocommerce-MyAccount-account-funds form .form-row {
+	margin-top: var(--space-xs);
+}
+
+.woocommerce-MyAccount-account-funds form .form-row .button {
+	border-radius: 0 var(--radius-xs) var(--radius-xs) 0 ;
+	color: #fff;
+	background-color: var(--primary);
+	height: 42px;
+}
+
+.woocommerce-MyAccount-account-funds form .form-row input#topup_amount {
+	border-radius: var(--radius-xs) 0  0  var(--radius-xs);
+}
+
+.woocommerce-MyAccount-account-funds form .form-row .button:hover {
+	background-color: var(--primary-hover); 
+}
+
+.woocommerce-MyAccount-account-funds form .form-row .description {
+	font-size: var(--text-xs);
+	color: var(--tertiary);
+}
+
+.woocommerce-MyAccount-account-funds form h3 label {
+	font-weight: 700;
+	font-size: var(--text-s);
+}
+
+

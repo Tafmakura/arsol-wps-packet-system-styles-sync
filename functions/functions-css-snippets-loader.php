@@ -134,3 +134,27 @@ function arsol_wps_packet_system_styles_add_woocommerce_product_addons_styles($c
     );
     return $css_options;
 }
+
+// Account Funds Plugin Styles
+add_filter('arsol_wp_snippets_css_addon_files', 'arsol_wps_packet_system_styles_add_account_funds_styles');
+function arsol_wps_packet_system_styles_add_account_funds_styles($css_options) {
+    $css_options[] = array(
+        'name' => 'Plugin: Account Funds',
+        'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-account-funds.css',
+        'context' => 'frontend',
+        'position' => 'header'
+    );
+    return $css_options;
+}
+
+// Bricks Builder Plugin Styles
+add_filter('arsol_wp_snippets_css_addon_files', 'arsol_wps_packet_system_styles_add_bricks_styles');
+function arsol_wps_packet_system_styles_add_bricks_styles($css_options) {
+    $css_options[] = array(
+        'name' => 'Plugin: Bricks Builder',
+        'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-bricks.css',
+        'context' => 'frontend',
+        'position' => 'header'
+    );
+    return $css_options;
+}

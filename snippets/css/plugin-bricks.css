@@ -1,0 +1,39 @@
+.woocommerce-order-details table td, 
+.woocommerce-order-details table th {
+    line-height: 1.7;
+    padding: 15px;
+}
+
+.w00000000oocommerce-order-details table thead {
+    display: contents;
+	
+}
+
+/*
+form.cart {  
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  column-gap: 12px;
+}
+
+*/
+
+form.cart .single_add_to_cart_button {
+	margin-top: var(--space-m) !important;
+	font-size: var(--text-s) !important;
+	line-height: 50.27px !important;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+form.cart .single_add_to_cart_button {
+  min-width: 180px !important;
+}
+
+
+
+/* This allows you to determine the color of the nestable tabs text from the builder */
+.tab-title .brxe-text-basic {
+	color: inherit;
+}
