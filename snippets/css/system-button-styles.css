@@ -54,9 +54,9 @@ form input[type="submit"],
 .fs_close_ticket /* Fluent Support */,
 .fs_ticket_refresh_btn /* Fluent Support */,
 .fs_client_portal .wp-editor-wrap .wp-editor-tabs .wp-switch-editor[aria-pressed=true] /* Fluent Support */ {
-	background-color: var(--primary) !important;
-	color: #fff !important;
-	text-decoration: none !important;
+	background-color: var(--primary) ;
+	color: #fff ;
+	text-decoration: none ;
 }
 
 button.fcal_btn_submit:hover,
