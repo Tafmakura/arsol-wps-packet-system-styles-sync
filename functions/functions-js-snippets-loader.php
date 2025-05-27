@@ -10,7 +10,8 @@ function arsol_wps_packet_system_styles_add_my_example_js($js_options) {
         'name' => 'My Example JS file',
         'file' => plugin_dir_url(__FILE__) . '../snippets/js/example.js',
         'context' => 'frontend',
-        'position' => 'footer'
+        'position' => 'footer',
+        'priority' =>989898 
     );
     return $js_options;
 }
