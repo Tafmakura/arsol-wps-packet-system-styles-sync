@@ -111,10 +111,10 @@ table .woocommerce-orders-table__cell-project-actions a.button {
 
 .woocommerce table.woocommerce-orders-table a.order-actions-button:hover,
 .woocommerce table .payment-method-actions a.button:hover,
-table .woocommerce-orders-table__cell-order-actions a.button:hover,
-table .woocommerce-orders-table__cell-ars_order_actions a.button:hover,
-table .woocommerce-orders-table__cell-project-actions a.button:hover {
+.woocommerce table .woocommerce-orders-table__cell-order-actions a.button:hover,
+.woocommerce table .woocommerce-orders-table__cell-ars_order_actions a.button:hover,
+.woocommerce table .woocommerce-orders-table__cell-project-actions a.button:hover {
 	color: var(--primary) !important;
-	background-color:transparent !important;
+	background-color: transparent !important;
 	text-decoration: underline !important;
 }
