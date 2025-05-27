@@ -94,9 +94,9 @@ form input[type="submit"]:not(:disabled):hover,
 .brxe-woocommerce-mini-cart a.button:hover,
 .woocommerce button[name="apply_coupon"]:hover,
 .woocommerce form.cart .added_to_cart:hover{
-	background-color: var(--primary);
-	color: #fff;
-	text-decoration: none;
+	background-color: var(--primary) !important;
+	color: #fff !important;
+	text-decoration: none !important;
 }
 
 .woocommerce table.woocommerce-orders-table a.order-actions-button,
