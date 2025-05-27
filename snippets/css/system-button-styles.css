@@ -26,6 +26,16 @@
 	border-bottom: solid 1px var(--border-primary) !important;
 }
 
+
+/* Woocommerce */
+
+.woocommerce .button {
+	border-radius: var(--radius-xs)!important;
+}
+
+
+
+
 button.fcal_btn_submit,
 main form input[type="submit"],
 .woocommerce form.cart .added_to_cart,
