@@ -128,7 +128,7 @@ add_filter('arsol_wp_snippets_css_addon_files', 'arsol_wps_packet_system_styles_
 function arsol_wps_packet_system_styles_add_woocommerce_product_addons_styles($css_options) {
     $css_options[] = array(
         'name' => 'Plugin: WooCommerce Product Add-Ons Ultimate (Product Extras for WooCommerce)',
-        'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-woocommerce-product-addons.css',
+        'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-product-extras-for-woocommerce.css',
         'context' => 'frontend',
         'position' => 'header'
     );
