@@ -1,0 +1,97 @@
+/* Front end calendar display */
+
+.fcal_container .fcal_booking_header {
+	display: none !important;
+}
+
+/* Table Header */
+.fcal_booking_header {
+	margin-bottom: var(--space-4xs) !important;
+}
+
+/* Bookings */
+
+
+.fcal_spot_period_status {
+	color: var(--primary) !important;
+}
+
+.fcal_spot_actions {
+	display: none !important;
+}
+
+.fcal_spot_line {
+    padding: var(--space-xs) !important;
+}
+
+
+.fcal_spot_line:hover {
+    background: var(--bg-primary) !important;
+}
+
+.fcal_wrap .fcal_calendar_inner {
+	width: 100%;
+}
+
+.fcal_booking_wrapper {
+	border-radius: var(--radius-xs) !important;
+	border: 1px 0 !important;
+	/* margin-bottom: var(--space-s); */
+}
+
+.fcal_booking_wrapper:hover {
+	border-color: var(--primary) !important;
+	border-radius: var(--radius-xs) !important;
+}
+
+/* Actions */ 
+
+.fcal_booking_header_actions form {
+	border: none !important;
+}
+
+.fcal_radio_btn label {
+	font-weight: 700 !important;
+}
+
+.fcal_radio_btn input:hover~label,
+.fcal_radio_btn input:checked~label {
+	background: var(--bg-primary) !important;
+	color: var(--primary) !important;
+	border-radius: var(--radius-xs)!important;
+	
+}
+
+
+
+/* Spacing */
+
+.fcal_booking_form_wrap .fcal_booking_form .fcal_form_item .fcal_input_content .fcal_input_label {
+	font-weight: inherit !important;
+	font-size: inherit !important;
+	margin-bottom: inherit !important;
+}
+
+.svelte-select input,
+.fcal_booking_form_wrap .fcal_booking_form .fcal_form_item .fcal_input_content input,
+.fcal_booking_form_wrap .fcal_booking_form .fcal_form_item .fcal_input_content textarea {
+	border-radius: 5px !important;
+}
+
+/* Button */
+
+button.fcal_btn_submit {
+	background-color: var(--primary)!important;
+	text-decoration: none;
+    border-radius: var(--radius-xs) !important;
+    font-size: inherit !important;
+    font-weight: 700 !important;
+    min-height: 40px !important;
+    padding: 7px 15px !important;
+}
+
+button.fcal_btn_submit:hover,
+button.fcal_svg:hover{
+	background-color: var(--primary-hover) !important;
+	opacity: 1 !important;
+}

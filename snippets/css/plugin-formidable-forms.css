@@ -1,0 +1,56 @@
+/* Spacing */
+
+.with_frm_style .frm_primary_label {
+	padding:0 !important;
+}
+
+
+.frm_forms fieldset,
+.frm_forms .form-field,
+.frm_forms form input[type="submit"] {
+	margin-top: 15px;
+}
+
+/* May need to reenable this at some point */
+.frm_forms fieldset {
+	padding: 0;
+	background-color: transparent;
+}
+
+/* Form Section */
+
+.with_frm_style .frm-show-form .frm_section_heading h3[class*="frm_pos_"] {
+	font-size: var(--text-m) !important;
+}
+
+.frm_color_block {
+	background-color: transparent !important;
+	padding: 0 !important;
+}
+
+.frm_grid_container {
+	border-bottom: 1px solid var(--border-primary);
+	margin-top: 0 !important;
+	padding: 15px 0;
+}
+
+.frm_grid_container {
+	border-bottom: 1px solid var(--border-primary);
+	margin-top: 0 !important;
+	padding: 15px 0;
+}
+
+.frm_color_block div.frm_grid_container:first-child {
+	border-top: 1px solid var(--border-primary) !important ;
+}
+
+.frm_grid_container .frm_primary_label {
+	font-weight: 700 !important;
+	font-size: var(--text-s) !important;
+}
+
+.frm_grid_container .frm_total_formatted {
+	font-weight: 500 !important;
+	font-size: var(--text-xs) !important;
+	color: var(--tertiary) !important;
+}

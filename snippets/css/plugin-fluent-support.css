@@ -1,0 +1,230 @@
+.fs_client_portal label,
+.fs_client_portal h1,
+.fs_client_portal h2,
+.fs_client_portal h3,
+.fs_client_portal h4,
+.fs_client_portal h5,
+.fs_client_portal h6,
+.fs_client_portal .fs_ticket_threads_container .fs_ticket_thread .fs_ticket_thread_content .fs_ticket_thread_wrap .fs_thread_head .fs_thread_name,
+.fs_client_portal .fs_ticket_threads_container .fs_ticket_thread .fs_ticket_thread_content .fs_ticket_thread_wrap .fs_thread_head .fs_thread_name strong,
+.fs_ticket_title strong
+{
+	font-weight: 700 !important;
+}
+
+table td.el-table__cell .cell,
+p.fs_ticket_preview {
+	color: var(--tertiary) !important;
+}
+.el-table--fit.el-table table tr td /* Fluent Support */ {
+	padding: 15px !important;
+}
+
+thead th:first-child .cell {
+	padding-left: 0;
+}
+
+a.fs_ticket_conversation:hover  .fs_ticket_title strong {
+	text-decoration: underline !important;
+}
+
+.fs_button_groups {
+	column-gap: var(--space-2xs) !important;
+	max-width: auto !important;
+}
+
+.fs_back_btn,
+.fs_close_ticket_title,
+.fs_ticket_refresh_btn span,
+.el-button svg
+{
+	font-weight: 700 !important;
+	color: #fff !important;
+}
+
+.fs_client_portal .fs_ticket_alert .el-alert,
+.fs_status_badge{
+	border-radius: var(--radius-xs) !important;
+}
+
+.fs_client_portal .fs_back_nav {
+	justify-content: flex-end !important;
+}
+
+.fs_client_portal .fs_back_nav .fs_svg_back,
+.fs_product_filter_head{
+	display: none !important;
+}
+
+.fs_client_portal .fs_tickets_header,
+.fs_client_portal .fs_ticket_header,
+.fs_client_portal .fs_ticket_alert,
+.fs_client_portal .fs_ticket_wrapper .fs_tickets_container .fs_ticket_heroarea .fs_tk_subject
+{
+	border-bottom: 0 !important;
+	padding: 0 !important;
+	margin-bottom: var(--space-s) !important;
+}
+
+.fs_client_portal .fs_ticket_reply_box {
+	margin-bottom: var(--space-s) !important;
+}
+
+.fs_client_portal .fs_ticket_wrapper .fs_tickets_container .fs_filters_section {
+	padding: 0 !important;
+}
+
+.fs_client_portal .fs_ticket_wrapper .fs_tickets_container .fs_tickets_table .el-table .el-table__header thead th:first-child,
+.fs_client_portal .fs_ticket_wrapper .fs_tickets_container .fs_tickets_table .el-table .el-table__header thead th:last-child{
+    border-radius: 0 !important;
+}
+
+
+.fs_tickets_header {
+	justify-content: flex-end !important;	
+}
+
+.fs_tickets_header label
+{
+	display: none !important;
+	
+}
+
+
+/* .fs_tickets_header {} */
+
+.el-table__header-wrapper table.el-table__header thead tr th.el-table__cell,
+.fs_client_portal .fs_ticket_wrapper .fs_tickets_container .fs_filters_section .fs_filter_container .fs_button_groups {
+	background-color: transparent !important;
+}
+
+.el-table__header-wrapper table.el-table__header,
+.el-table__body-wrapper table.el-table__body {
+	margin: 0;
+}
+
+.fs_client_portal .fs_ticket_wrapper .fs_pagination_container,
+.fs_client_portal .fs_ticket_wrapper .fs_tickets_container .fs_pagination_section,
+.fs_client_portal .fs_ticket_form,
+.fs_client_portal .fs_ticket_header,
+.fs_client_portal .fs_ticket_reply_box,
+.fs_button_groups,
+.wp-editor-tabs,
+.fs_pagination_section,
+.el-table .el-table__cell
+{
+	padding: 0 !important;
+}
+
+.fs_status_badge {
+	font-size: var(--text-xs) !important;
+}
+
+.fs_client_portal .fs_ticket_wrapper .fs_tickets_container,
+.fs_client_portal .fs_ticket_form_container,
+.wp-editor-tabs,
+.el-input__wrapper
+{
+	border: 0 !important;
+}
+
+.fs_client_portal .fs_create_ticket_container .el-input__wrapper, 
+.fs_client_portal .fs_create_ticket_container .el-select__wrapper,
+
+
+input.el-input__inner,
+input.el-select__input {
+	border: 0 !important;
+    padding: 0  !important;
+    border-radius: 5px !important;
+	box-shadow: none;
+}
+
+
+input.el-input__inner:focus,
+input.el-select__input:focus,
+input.el-input__inner:focus-visible,
+input.el-select__input:focus-visible {
+	border: none !important;
+    padding: 5px 12px !important;
+	border-radius: 5px !important;
+	height: 40px !important;
+  	outline: none !important;
+}
+
+.fs_client_portal .fs_create_ticket_container .el-input__wrapper{
+	border-color: transparent !important;
+	border: 0 !important;
+  	box-shadow:none !important;
+}
+
+.fs_client_portal .fs_ticket_wrapper .fs_tickets_container .fs_filters_section .fs_filter_container .fs_filter_right .fs_search_filter .search-input .el-input__wrapper,
+.fs_client_portal .fs_create_ticket_container .el-input__wrapper,
+.fs_client_portal .fs_create_ticket_container .el-select__wrapper,
+.fs_client_portal .wp-editor-wrap .wp-editor-container,
+.fs_client_portal .fs_ticket_wrapper .fs_pagination_container .fs_per_page_select .el-select__wrapper,
+textarea.fs_ticket_reply_text {
+	border: 1px solid #000 !important;
+    padding: 5px 12px !important;
+	border-radius: 5px !important;
+	min-height: 40px !important;
+	background-color: #fff !important;
+}
+
+.fs_client_portal .wp-editor-wrap .wp-editor-container,
+.fs_client_portal .fs_ticket_wrapper .fs_tickets_container .fs_filters_section .fs_filter_container .fs_button_groups,
+.fs_ticket_reply_box
+{
+	padding: 0 !important;
+}
+
+input.el-input__inner {
+	border-radius: 0  !important;
+}
+
+input.el-input__inner:focus-visible,
+input.el-input__inner:focus{
+    box-shadow: none;
+    color: transparent;
+}
+
+.el-input__wrapper.is-focus,
+.el-select__wrapper.is-focused {
+	box-shadow: 0 0 0 1px #000 !important;
+}
+
+.fs_client_portal .fs_ticket_wrapper .fs_tickets_container .fs_tickets_table,
+.fs_client_portal .fs_ticket_alert {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+.fs_client_portal .fs_ticket_wrapper .fs_tickets_container .fs_tickets_table .el-table .el-table__body .fs_ticket_row td {
+	border-bottom: none !important;
+}
+
+/* Add a thick red border to each ticket row in the client portal */
+.fs_client_portal .fs_ticket_row {
+  border-width: 12px !important;
+  border-style: solid !important;
+  border-color: red !important;
+}
+
+
+.fs_client_portal .fs_ticket_wrapper .fs_tickets_container .fs_tickets_table .el-table .el-table__body .fs_ticket_row {
+	
+}
+
+.fs_client_portal .fs_ticket_wrapper .fs_tickets_container .fs_filters_section .fs_filter_container .fs_button_groups .status-btn.active {
+	box-shadow: none !important;
+}
+
+.fs_client_portal .fs_ticket_wrapper .fs_tickets_container .fs_ticket_heroarea .fs_ticket_actions,
+.fs_client_portal .fs_ticket_wrapper .fs_tickets_container .fs_filters_section {
+	border: none !important;
+	border-top: 1px solid var(--border-primary) !important;
+	border-bottom: 1px solid var(--border-primary) !important;
+	padding: var(--space-xs) 0 !important;	
+	margin-bottom: var(--space-s) !important;
+}
+

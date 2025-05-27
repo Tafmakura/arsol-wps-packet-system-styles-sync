@@ -50,3 +50,63 @@ function arsol_wps_packet_system_styles_add_pagination_styles($css_options) {
     );
     return $css_options;
 }
+
+// Fluent Booking Plugin Styles
+add_filter('arsol_wp_snippets_css_addon_files', 'arsol_wps_packet_system_styles_add_fluent_booking_styles');
+function arsol_wps_packet_system_styles_add_fluent_booking_styles($css_options) {
+    $css_options[] = array(
+        'name' => 'Plugin: Fluent Booking',
+        'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-fluent-booking.css',
+        'context' => 'frontend',
+        'position' => 'header'
+    );
+    return $css_options;
+}
+
+// Fluent Support Plugin Styles
+add_filter('arsol_wp_snippets_css_addon_files', 'arsol_wps_packet_system_styles_add_fluent_support_styles');
+function arsol_wps_packet_system_styles_add_fluent_support_styles($css_options) {
+    $css_options[] = array(
+        'name' => 'Plugin: Fluent Support',
+        'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-fluent-support.css',
+        'context' => 'frontend',
+        'position' => 'header'
+    );
+    return $css_options;
+}
+
+// Formidable Forms Plugin Styles
+add_filter('arsol_wp_snippets_css_addon_files', 'arsol_wps_packet_system_styles_add_formidable_forms_styles');
+function arsol_wps_packet_system_styles_add_formidable_forms_styles($css_options) {
+    $css_options[] = array(
+        'name' => 'Plugin: Formidable Forms',
+        'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-formidable-forms.css',
+        'context' => 'frontend',
+        'position' => 'header'
+    );
+    return $css_options;
+}
+
+// Themeisle Menu Icon Plugin Styles
+add_filter('arsol_wp_snippets_css_addon_files', 'arsol_wps_packet_system_styles_add_themeisle_menu_icon_styles');
+function arsol_wps_packet_system_styles_add_themeisle_menu_icon_styles($css_options) {
+    $css_options[] = array(
+        'name' => 'Plugin: Themeisle Menu Icon',
+        'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-themeisle-menu-icon.css',
+        'context' => 'frontend',
+        'position' => 'header'
+    );
+    return $css_options;
+}
+
+// WooCommerce Plugin Styles
+add_filter('arsol_wp_snippets_css_addon_files', 'arsol_wps_packet_system_styles_add_woocommerce_styles');
+function arsol_wps_packet_system_styles_add_woocommerce_styles($css_options) {
+    $css_options[] = array(
+        'name' => 'Plugin: WooCommerce',
+        'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-woocommerce.css',
+        'context' => 'frontend',
+        'position' => 'header'
+    );
+    return $css_options;
+}

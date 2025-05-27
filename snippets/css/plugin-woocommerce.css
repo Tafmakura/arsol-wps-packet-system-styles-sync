@@ -1,0 +1,128 @@
+button[type=submit]:disabled {
+    background-color: var(--bricks-bg-light);
+    color: inherit;
+    cursor: not-allowed;
+    color: #ccc !important;
+}
+
+
+.wc-proceed-to-checkout {
+    text-align: right;
+}
+
+.wc-block-components-checkout-order-summary__title-text {
+	font-size: var(--text-l);
+}
+
+.wc-block-components-checkout-return-to-cart-button,
+.wc-block-components-totals-item__label {
+	font-weight: 700;
+}
+
+ul.woocommerce-PaymentMethods {
+	padding-left: 0;
+}
+
+.woocommerce-account .woocommerce-customer-details {
+	clear: both;
+}
+.woocommerce-account .woocommerce-customer-details address {
+	margin: 15px 0;
+}
+
+.woocommerce-MyAccount-content h2 {
+	clear: both; 
+}
+
+.woocommerce.single-product form.cart .button {
+	min-width: auto;
+}
+
+
+/* Product quantity */
+.woocommerce .quantity input.qty {
+	border-radius: 0;
+	font-weight: 700;
+	color: #000;
+}
+
+
+form.cart .quantity, 
+form.woocommerce-cart-form .quantity {
+    display: flex;
+    width: 200px;
+}
+
+.woocommerce .quantity .action {
+	border: 1px solid #000;
+	opacity: 1;
+}
+
+.woocommerce .quantity .action:hover {
+	background-color: var(--bg-body);
+}
+
+.woocommerce .quantity .plus {
+	border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+}
+
+.woocommerce .quantity .minus {
+	border-radius: var(--radius-xs) 0 0 var(--radius-xs);
+}
+
+/* 
+.woocommerce form.cart .quantity::before,
+.woocommerce form.woocommerce-cart-form .quantity::before {
+    content: "(Quantity)";
+	font-size: 15px;
+    font-weight: 700;
+    margin-right: 8px;
+    align-self: center;
+}
+*/
+
+form.cart .quantity,
+form.woocommerce-cart-form .quantity {
+    display: inline-flex;
+    position: relative;
+    width: 130px; /* You can increase this if needed */
+	height: 50px;
+	top: 2px;
+	margin-right: 8px;
+}
+
+
+
+/* Forms Custom */
+
+@media screen and  (min-width: 990px) { 
+	.woocommerce-account .form-row-wide {
+		max-width: 49%;
+	}
+}
+
+
+
+/*
+.woocommerce .button {
+	border-radius: var(--radius-xs) !important;
+	background-color: var(--primary) !important;
+	color: #fff !important;
+}
+
+.woocommerce .button:hover {
+	background-color: var(--primary-hover) !important;
+}
+*/
+
+
+/* Subscriptions */
+
+.wc-block-order-confirmation-additional-fields-wrapper .wc-block-components-additional-fields-list dd {
+	margin: 0;
+}
+
+.wc-block-order-confirmation-additional-fields-wrapper .wc-block-components-additional-fields-list dt {
+	font-weight: 700;
+	font-size: var(--text-s)
+}
