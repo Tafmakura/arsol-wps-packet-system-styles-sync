@@ -13,6 +13,7 @@ add_filter( 'bricks/code/echo_function_names', function() {
 		'get_current_user_id',
 		'wc_get_orders',
 		'ars_account_page_title',
+        'comments_open'
 	];
 } );
 
