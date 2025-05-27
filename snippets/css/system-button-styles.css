@@ -88,18 +88,19 @@ main form input[type="submit"]:not(:disabled):hover,
 	color: var(--primary) !important;
 }
 
+/*
 .woocommerce button[name="apply_coupon"],
 .woocommerce form.cart .added_to_cart,
-.fs_ticket_refresh_btn /* Fluent Support */{
+.fs_ticket_refresh_btn /* Fluent Support *//*{
 	background-color: #e4e7e9;
 	color: #000;
 }
+	*/
 
 
-.button:disabled {
-  background-color: #ccc ;
+.button:disabled,
+.woocommerce-cart-form button[type=submit]:disabled {
   cursor: not-allowed;
-  color: #000;
   opacity: 0.4;
 }
 
