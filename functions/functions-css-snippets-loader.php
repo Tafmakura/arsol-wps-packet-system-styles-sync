@@ -110,3 +110,27 @@ function arsol_wps_packet_system_styles_add_woocommerce_styles($css_options) {
     );
     return $css_options;
 }
+
+// WooCommerce Subscriptions Plugin Styles
+add_filter('arsol_wp_snippets_css_addon_files', 'arsol_wps_packet_system_styles_add_woocommerce_subscriptions_styles');
+function arsol_wps_packet_system_styles_add_woocommerce_subscriptions_styles($css_options) {
+    $css_options[] = array(
+        'name' => 'Plugin: WooCommerce Subscriptions',
+        'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-woocommerce-subscriptions.css',
+        'context' => 'frontend',
+        'position' => 'header'
+    );
+    return $css_options;
+}
+
+// WooCommerce Product Add-Ons Ultimate Plugin Styles
+add_filter('arsol_wp_snippets_css_addon_files', 'arsol_wps_packet_system_styles_add_woocommerce_product_addons_styles');
+function arsol_wps_packet_system_styles_add_woocommerce_product_addons_styles($css_options) {
+    $css_options[] = array(
+        'name' => 'Plugin: WooCommerce Product Add-Ons Ultimate (Product Extras for WooCommerce)',
+        'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-woocommerce-product-addons.css',
+        'context' => 'frontend',
+        'position' => 'header'
+    );
+    return $css_options;
+}
