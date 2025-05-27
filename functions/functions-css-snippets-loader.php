@@ -23,7 +23,7 @@ function arsol_wps_packet_system_styles_add_button_styles($css_options) {
         'file' => plugin_dir_url(__FILE__) . '../snippets/css/system-button-styles.css',
         'context' => 'frontend',
         'position' => 'header',
-        'priority' => 10
+        'priority' => 99
     );
     return $css_options;
 }
