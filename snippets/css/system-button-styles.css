@@ -99,7 +99,8 @@ main form input[type="submit"]:not(:disabled):hover,
 
 
 .button:disabled,
-.woocommerce-cart-form button[type=submit]:disabled {
+.woocommerce-cart-form button[type=submit]:disabled {	
+  background-color: var(--primary);
   cursor: not-allowed;
   opacity: 0.4;
 }
