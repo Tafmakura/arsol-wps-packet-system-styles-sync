@@ -27,7 +27,7 @@
 }
 
 button.fcal_btn_submit,
-.woocommerce .button,
+.woocommerce main .button,
 form input[type="submit"],
 .woocommerce form.cart .added_to_cart,
 .wc-block-components-checkout-place-order-button,
