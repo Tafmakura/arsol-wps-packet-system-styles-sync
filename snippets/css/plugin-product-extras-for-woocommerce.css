@@ -1,0 +1,21 @@
+.pewc-product-extra-groups-wrap .pewc-total-field-wrapper {
+	margin-bottom: 0;
+}
+
+.pewc-product-extra-groups-wrap .pewc-total-field-wrapper p {
+	border-top: 1px solid rgb(221, 222, 223);
+	margin-bottom: 0;
+}
+
+.pewc-product-extra-groups-wrap .pewc-total-field-wrapper p:last-child {
+	border-bottom: 1px solid rgb(221, 222, 223);
+}
+
+.pewc-product-extra-groups-wrap .pewc-total-field-wrapper p:last-child span {
+	font-size: var(--text-xl) !important;
+}
+
+
+.pewc-group-content-wrapper  ul.pewc-product-extra-groups {
+	padding-left: 0;
+}
