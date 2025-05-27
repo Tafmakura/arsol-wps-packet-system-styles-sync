@@ -10,7 +10,8 @@ function arsol_wps_packet_system_styles_add_table_styles($css_options) {
         'name' => 'System: Table Styles',
         'file' => plugin_dir_url(__FILE__) . '../snippets/css/system-table-styles.css',
         'context' => 'frontend',
-        'position' => 'header'
+        'position' => 'header',
+        'priority' => 99
     );
     return $css_options;
 }
@@ -35,7 +36,8 @@ function arsol_wps_packet_system_styles_add_form_styles($css_options) {
         'name' => 'System: Form Styles',
         'file' => plugin_dir_url(__FILE__) . '../snippets/css/system-form-styles.css',
         'context' => 'frontend',
-        'position' => 'header'
+        'position' => 'header',
+        'priority' => 99
     );
     return $css_options;
 }
@@ -47,7 +49,8 @@ function arsol_wps_packet_system_styles_add_pagination_styles($css_options) {
         'name' => 'System: Pagination Styles',
         'file' => plugin_dir_url(__FILE__) . '../snippets/css/system-pagination-styles.css',
         'context' => 'frontend',
-        'position' => 'header'
+        'position' => 'header',
+        'priority' => 99
     );
     return $css_options;
 }
@@ -59,7 +62,8 @@ function arsol_wps_packet_system_styles_add_fluent_booking_styles($css_options) 
         'name' => 'Plugin: Fluent Booking',
         'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-fluent-booking.css',
         'context' => 'frontend',
-        'position' => 'header'
+        'position' => 'header',
+        'priority' => 99
     );
     return $css_options;
 }
@@ -71,7 +75,8 @@ function arsol_wps_packet_system_styles_add_fluent_support_styles($css_options) 
         'name' => 'Plugin: Fluent Support',
         'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-fluent-support.css',
         'context' => 'frontend',
-        'position' => 'header'
+        'position' => 'header',
+        'priority' => 99
     );
     return $css_options;
 }
@@ -83,7 +88,8 @@ function arsol_wps_packet_system_styles_add_formidable_forms_styles($css_options
         'name' => 'Plugin: Formidable Forms',
         'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-formidable-forms.css',
         'context' => 'frontend',
-        'position' => 'header'
+        'position' => 'header',
+        'priority' => 99
     );
     return $css_options;
 }
@@ -95,7 +101,8 @@ function arsol_wps_packet_system_styles_add_themeisle_menu_icon_styles($css_opti
         'name' => 'Plugin: Themeisle Menu Icon',
         'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-themeisle-menu-icon.css',
         'context' => 'frontend',
-        'position' => 'header'
+        'position' => 'header',
+        'priority' => 99
     );
     return $css_options;
 }
@@ -107,7 +114,8 @@ function arsol_wps_packet_system_styles_add_woocommerce_styles($css_options) {
         'name' => 'Plugin: WooCommerce',
         'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-woocommerce.css',
         'context' => 'frontend',
-        'position' => 'header'
+        'position' => 'header',
+        'priority' => 99
     );
     return $css_options;
 }
@@ -119,7 +127,8 @@ function arsol_wps_packet_system_styles_add_woocommerce_subscriptions_styles($cs
         'name' => 'Plugin: WooCommerce Subscriptions',
         'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-woocommerce-subscriptions.css',
         'context' => 'frontend',
-        'position' => 'header'
+        'position' => 'header',
+        'priority' => 99
     );
     return $css_options;
 }
@@ -131,7 +140,8 @@ function arsol_wps_packet_system_styles_add_woocommerce_product_addons_styles($c
         'name' => 'Plugin: WooCommerce Product Add-Ons Ultimate (Product Extras for WooCommerce)',
         'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-product-extras-for-woocommerce.css',
         'context' => 'frontend',
-        'position' => 'header'
+        'position' => 'header',
+        'priority' => 99
     );
     return $css_options;
 }
@@ -143,7 +153,8 @@ function arsol_wps_packet_system_styles_add_account_funds_styles($css_options) {
         'name' => 'Plugin: Account Funds',
         'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-account-funds.css',
         'context' => 'frontend',
-        'position' => 'header'
+        'position' => 'header',
+        'priority' => 99
     );
     return $css_options;
 }
@@ -155,7 +166,8 @@ function arsol_wps_packet_system_styles_add_bricks_styles($css_options) {
         'name' => 'Plugin: Bricks Builder',
         'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-bricks.css',
         'context' => 'frontend',
-        'position' => 'header'
+        'position' => 'header',
+        'priority' => 99
     );
     return $css_options;
 }
