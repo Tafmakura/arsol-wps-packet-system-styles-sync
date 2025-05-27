@@ -1,0 +1,84 @@
+table {
+	margin-bottom: var(--text-s);
+	margin-top: 15px;
+}
+
+table a {
+	font-weight: 700;
+}
+
+table td,
+table td a,
+table th.woocommerce-orders-table__cell-order-number a,
+table th.woocommerce-orders-table__cell-subscription-number a,
+table th.woocommerce-orders-table__cell-project-name a,
+table td.el-table__cell .cell /* Fluent Support */, 
+table td.el-table__cell .cell p.fs_ticket_preview /* Fluent Support */{
+	font-size: var(--text-xs) !important;
+}
+
+table .payment-method-actions,
+table .woocommerce-orders-table__cell-order-actions,
+table .woocommerce-orders-table__cell-ars_order_actions,
+table .woocommerce-orders-table__cell-project-actions {
+	text-align: end;
+}
+
+table th,
+table th.el-table .el-table__cell /* Fluent Support */ {
+	line-height: 40px;
+	height: 40px;
+}
+
+table th.el-table__cell .cell /* Fluent Support */ {
+	font-weight: 700 !important;
+}
+
+table td,
+.pewc-product-extra-groups-wrap .pewc-total-field-wrapper p /* Plugin: WooCommerce Product Add-Ons Ultimate */,
+table td.el-table__cell
+{
+	padding: 15px 0;
+	color: var(--tertiary);
+	font-weight: 500;
+}
+
+table th,
+table td {
+	border-bottom-color:rgb(221, 222, 223);
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+} 
+
+
+/* WooCommerce */
+
+table.subscription_details tbody tr td:first-child,
+.pewc-product-extra-groups-wrap .pewc-total-field-wrapper p span /* Plugin: WooCommerce Product Add-Ons Ultimate */
+{
+	padding-left: 0;
+	font-weight: 700;
+	color: #000;
+	font-size: 15px !important;
+}
+
+table.woocommerce-table--order-details,
+table.woocommerce-orders-table--subscriptions {
+	border-left: none;
+	border-right: none;
+	clear: both;
+	margin-top: 15px;
+}
+
+table.woocommerce-table--order-details tfoot th,
+table.woocommerce-table--order-details tfoot td,
+table.woocommerce-orders-table--subscriptions .woocommerce-orders-table__cell {
+	padding-left: 0;
+	padding-right: 0;
+	width: auto;
+}
+
+
+table.woocommerce-table--order-details tfoot {
+	background: transparent;
+}

@@ -1,0 +1,120 @@
+/* Checkout */
+
+.wc-proceed-to-checkout a.checkout-button {
+	height: 50.273px;
+}
+.wp-block-woocommerce-checkout-order-summary-block {
+	border: none !important;
+}
+
+.wc-block-components-checkout-order-summary__title-text {
+	font-weight: 700 !important;
+	color: #000 !important;
+}
+
+.wc-block-components-order-summary-item__image{
+	display: none !important;
+}
+
+.wc-block-components-order-summary-item__description {
+	padding-left: 0 !important;
+}
+
+/* Cart */
+
+.shop_table_responsive td {
+	border-bottom: solid 1px var(--border-primary) !important;
+}
+
+button.fcal_btn_submit,
+.woocommerce .button,
+form input[type="submit"],
+.woocommerce form.cart .added_to_cart,
+.wc-block-components-checkout-place-order-button,
+.el-button /* Fluent Support */,
+.fs_close_ticket /* Fluent Support */,
+.fs_ticket_refresh_btn /* Fluent Support */,
+.fs_button_groups .status-btn /* Fluent Support */ {
+	border: none !important;
+	display: inline-flex !important;
+    font-weight: 700 !important;
+    justify-content: center !important;
+    min-height: 40px !important;
+    padding: 7px 15px !important;
+    text-align: center !important;
+	border-radius: var(--radius-xs)!important;
+	color: var(--tertiary);	
+}
+
+button.fcal_btn_submit,
+.woocommerce .button,
+form input[type="submit"],
+.wc-block-components-checkout-place-order-button,
+.el-button /* Fluent Support */,
+.fs_close_ticket /* Fluent Support */,
+.fs_ticket_refresh_btn /* Fluent Support */,
+.fs_client_portal .wp-editor-wrap .wp-editor-tabs .wp-switch-editor[aria-pressed=true] /* Fluent Support */ {
+	background-color: var(--primary) !important;
+	color: #fff !important;
+	text-decoration: none !important;
+}
+
+button.fcal_btn_submit:hover,
+.woocommerce .button:not(:disabled):hover,
+form input[type="submit"]:not(:disabled):hover,
+.wc-block-components-checkout-place-order-button:not(:disabled):hover,
+.el-button:hover /* Fluent Support */,
+.fs_close_ticket:hover /* Fluent Support */,
+.fs_ticket_refresh_btn:hover /* Fluent Support */{
+	background-color: var(--primary-hover) !important;
+	color: #fff !important;
+	text-decoration: none !important;
+}
+
+.fs_button_groups .status-btn.active,
+.fs_button_groups .status-btn:hover {
+    background: var(--bg-primary) !important;
+	color: var(--primary) !important;
+}
+
+.woocommerce button[name="apply_coupon"],
+.woocommerce form.cart .added_to_cart,
+.fs_ticket_refresh_btn /* Fluent Support */{
+	background-color: #e4e7e9;
+	color: #000;
+}
+
+
+.button:disabled {
+  background-color: #ccc !important; /* Gray out the button */
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.brxe-woocommerce-mini-cart a.button:hover,
+.woocommerce button[name="apply_coupon"]:hover,
+.woocommerce form.cart .added_to_cart:hover{
+	background-color: var(--primary);
+	color: #fff;
+	text-decoration: none;
+}
+
+.woocommerce table.woocommerce-orders-table a.order-actions-button,
+table .payment-method-actions a.button,
+table .woocommerce-orders-table__cell-order-actions a.button,
+table .woocommerce-orders-table__cell-ars_order_actions a.button,
+table .woocommerce-orders-table__cell-project-actions a.button {
+	background-color: transparent !important;
+	color: var(--primary) !important;
+	padding-left: 0 !important;
+}
+
+.woocommerce table.woocommerce-orders-table a.order-actions-button:hover,
+.woocommerce table .payment-method-actions a.button:hover,
+table .woocommerce-orders-table__cell-order-actions a.button:hover,
+table .woocommerce-orders-table__cell-ars_order_actions a.button:hover,
+table .woocommerce-orders-table__cell-project-actions a.button:hover {
+	color: var(--primary) !important;
+	background-color:transparent !important;
+	text-decoration: underline !important;
+}

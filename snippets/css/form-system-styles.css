@@ -1,0 +1,87 @@
+form input[type="text"],
+form input[type="password"],
+form input[type="tel"],
+form input[type="email"],
+form select,
+form textarea,
+.select2-selection /* Select 2 plugin */,
+.select2-search__field /* Select 2 plugin */,
+.svelte-select input,
+.fcal_booking_form_wrap .fcal_booking_form .fcal_form_item .fcal_input_content input /* Fluent Booking */,
+.fcal_booking_form_wrap .fcal_booking_form .fcal_form_item .fcal_input_content textarea /* Fluent Booking */,
+.fcal_timezone_select .svelte-select /* Fluent Booking */ {
+	border-radius: 5px !important;
+	border-color: black !important;
+	border-width: 1px;
+	border-style: solid;
+}
+
+form input:focus,
+form textarea:focus,
+.select2-container--open .select2-selection  /* Select 2 plugin */,
+.select2-dropdown /* Select 2 plugin */,
+.fcal_booking_form_wrap .fcal_booking_form .fcal_form_item .fcal_input_content input:focus /* Fluent Booking */,
+.fcal_booking_form_wrap .fcal_booking_form .fcal_form_item .fcal_input_content textarea:focus /* Fluent Booking */,
+.svelte-select.focused /* Fluent Booking */
+{
+	 border-color: #000 !important;
+  	 box-shadow: 0 0 0 1px #000 !important;
+	 
+}
+
+.select2-selection /* Select 2 plugin */,
+.select2-search__field /* Select 2 plugin */ {
+	height: 40px !important;
+	padding: 0 !important;
+	border-width: 1px !important;
+}
+
+.select2-search__field /* Select 2 plugin */ {
+	padding-left: var(--space-2xs) !important;
+}
+.woocommerce .select2-selection .select2-selection__rendered {
+    line-height: 36px !important;
+}
+
+
+
+form button.show-password-input {
+	background-color: transparent;
+}
+
+form fieldset {
+	padding: var(--space-s);
+	border-radius: var(--radius-s);
+	background-color: var(--bg-secondary);
+	border: 0 !important;
+}
+
+form legend {
+	font-size: var(--text-m);	
+	font-weight: 700;
+}
+
+form label,
+.fcal_booking_form_wrap .fcal_booking_form .fcal_form_item .fcal_input_content .fcal_input_label,
+.wc-block-components-text-input label,
+.wc-block-components-form .wc-block-components-text-input label,
+.el-form-item__label /*Fluent Support*/,
+.fs_client_portal .fs_ticket_details_label /*Fluent Support*/,
+.fs_client_portal .el-form-item__label /*Fluent Support*/ {
+	font-size: var(--text-2xs)!important;
+	border-color: black!important;
+	margin-bottom: 0!important;
+	color: rgba(18, 18, 18, 0.7)!important;
+	font-weight: 300 !important;
+}
+
+form span#account_display_name_description {
+	font-size: var(--text-2xs);
+	font-style: none;
+	color: var(--tertiary);
+}
+
+form legend {
+	font-size: var(--text-m);	
+	font-weight: 700;
+}
