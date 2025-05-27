@@ -29,7 +29,7 @@ function arsol_wps_packet_system_styles_add_test1_php($php_options) {
     $php_options[] = array(
         'name' => 'Test1 Logger',
         'file' => __DIR__ . '/../snippets/php/test1.php',
-        'priority' => 15
+        'priority' => 5
     );
     return $php_options;
 }
@@ -40,7 +40,7 @@ function arsol_wps_packet_system_styles_add_test2_php($php_options) {
     $php_options[] = array(
         'name' => 'Test2 Logger',
         'file' => __DIR__ . '/../snippets/php//test2.php',
-        'priority' => 5
+        'priority' => 15
     );
     return $php_options;
 }
