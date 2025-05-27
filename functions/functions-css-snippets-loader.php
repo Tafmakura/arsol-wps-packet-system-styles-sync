@@ -8,7 +8,7 @@ add_filter('arsol_wp_snippets_css_addon_files', 'arsol_wps_packet_system_styles_
 function arsol_wps_packet_system_styles_add_table_styles($css_options) {
     $css_options[] = array(
         'name' => 'System: Table Styles',
-        'file' => plugin_dir_url(__FILE__) . '../snippets/css/table-system-styles.css',
+        'file' => plugin_dir_url(__FILE__) . '../snippets/css/system-table-styles.css',
         'context' => 'frontend',
         'position' => 'header'
     );
@@ -20,7 +20,7 @@ add_filter('arsol_wp_snippets_css_addon_files', 'arsol_wps_packet_system_styles_
 function arsol_wps_packet_system_styles_add_button_styles($css_options) {
     $css_options[] = array(
         'name' => 'System: Button Styles',
-        'file' => plugin_dir_url(__FILE__) . '../snippets/css/button-system-styles.css',
+        'file' => plugin_dir_url(__FILE__) . '../snippets/css/system-button-styles.css',
         'context' => 'frontend',
         'position' => 'header'
     );
@@ -32,7 +32,19 @@ add_filter('arsol_wp_snippets_css_addon_files', 'arsol_wps_packet_system_styles_
 function arsol_wps_packet_system_styles_add_form_styles($css_options) {
     $css_options[] = array(
         'name' => 'System: Form Styles',
-        'file' => plugin_dir_url(__FILE__) . '../snippets/css/form-system-styles.css',
+        'file' => plugin_dir_url(__FILE__) . '../snippets/css/system-form-styles.css',
+        'context' => 'frontend',
+        'position' => 'header'
+    );
+    return $css_options;
+}
+
+// Pagination System Styles
+add_filter('arsol_wp_snippets_css_addon_files', 'arsol_wps_packet_system_styles_add_pagination_styles');
+function arsol_wps_packet_system_styles_add_pagination_styles($css_options) {
+    $css_options[] = array(
+        'name' => 'System: Pagination Styles',
+        'file' => plugin_dir_url(__FILE__) . '../snippets/css/system-pagination-styles.css',
         'context' => 'frontend',
         'position' => 'header'
     );

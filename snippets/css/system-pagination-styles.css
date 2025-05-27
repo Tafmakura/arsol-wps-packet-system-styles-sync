@@ -1,0 +1,12 @@
+ul.el-pager li {
+	line-height: 32px !important;
+	height: 32px !important;
+}
+
+ul.el-pager li.is-active {
+	border-radius: var(--radius-xs) !important;
+	border: 0 !important;
+	color: var(--primary) !important;
+	background: var(--bg-primary) !important;
+}
+
