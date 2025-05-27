@@ -9,9 +9,11 @@ if (did_action('init')) {
     if (isset($wp_filter['init'])) {
         foreach ($wp_filter['init']->callbacks as $p => $callbacks) {
             foreach ($callbacks as $callback) {
+                // Check if this is our callback by looking at the file path
                 if (is_array($callback['function']) && 
-                    is_array($callback['function'][0]) && 
-                    $callback['function'][0][0] === 'test2.php') {
+                    isset($callback['function'][0]) && 
+                    is_string($callback['function'][0]) && 
+                    strpos($callback['function'][0], 'test2.php') !== false) {
                     $priority = $p;
                     break 2;
                 }
@@ -19,6 +21,10 @@ if (did_action('init')) {
         }
     }
     echo '<p>Hook Priority: ' . ($priority ? $priority : 'Not found') . '</p>';
+    // Debug information
+    echo '<pre style="display:none;">';
+    print_r($wp_filter['init']->callbacks);
+    echo '</pre>';
 }
 echo '</div>';
 ?>
