@@ -24,7 +24,7 @@ function arsol_wps_packet_system_styles_add_bricks_php($php_options) {
 }
 
 // Add Test1 PHP
-add_filter('arsol_wp_snippets_php_addon_files', 'arsol_wps_packet_system_styles_add_test1_php', 15);
+//add_filter('arsol_wp_snippets_php_addon_files', 'arsol_wps_packet_system_styles_add_test1_php', 15);
 function arsol_wps_packet_system_styles_add_test1_php($php_options) {
     $php_options[] = array(
         'name' => 'Test1 Logger',
@@ -35,7 +35,7 @@ function arsol_wps_packet_system_styles_add_test1_php($php_options) {
 }
 
 // Add Test2 PHP
-add_filter('arsol_wp_snippets_php_addon_files', 'arsol_wps_packet_system_styles_add_test2_php', 5);
+//add_filter('arsol_wp_snippets_php_addon_files', 'arsol_wps_packet_system_styles_add_test2_php', 5);
 function arsol_wps_packet_system_styles_add_test2_php($php_options) {
     $php_options[] = array(
         'name' => 'Test2 Logger',
