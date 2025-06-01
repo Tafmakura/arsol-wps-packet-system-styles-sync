@@ -21,15 +21,15 @@ remove_filter('woocommerce_available_variation', 'custom_variation_subscription_
 remove_filter('woocommerce_variable_subscription_price_html', 'custom_highest_variation_price_html', 10);
 remove_filter('woocommerce_variable_price_html', 'custom_highest_variation_price_html', 10);
 
-// Add our filters with priority 99 to ensure they override most plugins
-add_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 99, 2);
-add_filter('woocommerce_available_variation', 'custom_variation_subscription_price_display', 99, 3);
-add_filter('woocommerce_variable_subscription_price_html', 'custom_highest_variation_price_html', 99, 2);
-add_filter('woocommerce_variable_price_html', 'custom_highest_variation_price_html', 99, 2);
+// Remove WooCommerce Subscriptions default price display
+add_filter('woocommerce_subscriptions_product_price_string', '__return_empty_string', 999);
+add_filter('woocommerce_subscription_price_string', '__return_empty_string', 999);
 
-// Add additional filters to catch all price display scenarios
-add_filter('woocommerce_subscription_price_html', 'custom_subscription_price_display', 99, 2);
-add_filter('woocommerce_variable_subscription_price_html', 'custom_subscription_price_display', 99, 2);
+// Add our filters with higher priority to ensure they run last
+add_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 999, 2);
+add_filter('woocommerce_available_variation', 'custom_variation_subscription_price_display', 999, 3);
+add_filter('woocommerce_variable_subscription_price_html', 'custom_highest_variation_price_html', 999, 2);
+add_filter('woocommerce_variable_price_html', 'custom_highest_variation_price_html', 999, 2);
 
 function custom_subscription_price_display($price, $product) {
     // Ensure WooCommerce Subscriptions functions are available
@@ -42,8 +42,8 @@ function custom_subscription_price_display($price, $product) {
         return $price;
     }
 
-    // Check if we've already modified this price or if subscription details exist
-    if (strpos($price, 'billing-description') !== false || strpos($price, 'subscription-details') !== false) {
+    // Check if we've already modified this price
+    if (strpos($price, 'billing-description') !== false) {
         return $price;
     }
 
@@ -115,8 +115,8 @@ function custom_variation_subscription_price_display($variation_data, $product, 
         return $variation_data;
     }
 
-    // Check if we've already modified this price or if subscription details exist
-    if (isset($variation_data['price_html']) && (strpos($variation_data['price_html'], 'billing-description') !== false || strpos($variation_data['price_html'], 'subscription-details') !== false)) {
+    // Check if we've already modified this price
+    if (isset($variation_data['price_html']) && strpos($variation_data['price_html'], 'billing-description') !== false) {
         return $variation_data;
     }
 
