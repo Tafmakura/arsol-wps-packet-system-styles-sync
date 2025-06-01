@@ -50,7 +50,7 @@ form.cart .single_add_to_cart_button {
 }
 
 
-.ars_reset-nestable-tabs .tab-menu .tab-menu .brx-open {
+.ars_reset-nestable-tabs .tab-menu .tab-title.brx-open {
   background-color: var(--bg-secondary) !important;
   border: 2px solid var(--edging-primary) !important;
 }
