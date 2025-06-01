@@ -67,7 +67,7 @@ add_shortcode('arsol-product-price', 'arsol_product_price_shortcode');
 
 /**
  * Shortcode to display WooCommerce product title
- * Usage: [arsol-product-title id=XXX]
+ * Usage: [arsol-product-title id=XXX htag="h2"]
  * 
  * @param array $atts Shortcode attributes
  * @return string Product title HTML
@@ -77,7 +77,7 @@ function arsol_product_title_shortcode($atts) {
     $atts = shortcode_atts(
         array(
             'id' => 0,
-            'tag' => 'h2', // Default HTML tag for the title
+            'htag' => '', // Optional HTML tag for the title
         ),
         $atts,
         'arsol-product-title'
@@ -108,11 +108,18 @@ function arsol_product_title_shortcode($atts) {
     }
 
     // Create title HTML
-    $title_html = sprintf(
-        '<%1$s class="arsol-product-title">%2$s</%1$s>',
-        esc_attr($atts['tag']),
-        esc_html($title)
-    );
+    if (!empty($atts['htag'])) {
+        $title_html = sprintf(
+            '<%1$s class="arsol-product-title">%2$s</%1$s>',
+            esc_attr($atts['htag']),
+            esc_html($title)
+        );
+    } else {
+        $title_html = sprintf(
+            '<span class="arsol-product-title">%s</span>',
+            esc_html($title)
+        );
+    }
     
     return $title_html;
 }

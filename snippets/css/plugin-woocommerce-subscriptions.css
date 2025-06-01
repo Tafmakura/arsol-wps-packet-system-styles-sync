@@ -1,0 +1,30 @@
+
+
+
+
+/* Variable Products */
+
+
+.pewc-product-extra-groups-wrap .pewc-total-field-wrapper /* Plugin: Product Add Ons */ {
+	margin-bottom: 0;
+}
+
+.pewc-product-extra-groups-wrap .pewc-total-field-wrapper p /* Plugin: Product Add Ons */ {
+	border-top: 1px solid rgb(221, 222, 223);
+	margin-bottom: 0;
+}
+
+.woocommerce-Price-amount,
+.pewc-product-extra-groups-wrap .pewc-total-field-wrapper p:last-child  /* Plugin: Product Add Ons */ {
+	border-bottom: 1px solid rgb(221, 222, 223);
+}
+
+.woocommerce-Price-amount,
+.pewc-product-extra-groups-wrap .pewc-total-field-wrapper p:last-child span /* Plugin: Product Add Ons */ {
+	font-size: var(--text-xl) !important;
+}
+
+
+.pewc-group-content-wrapper  ul.pewc-product-extra-groups /* Plugin: Product Add Ons */ {
+	padding-left: 0;
+}
