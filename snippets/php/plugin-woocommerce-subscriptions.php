@@ -15,19 +15,52 @@ if (!function_exists('wcs_is_subscription')) {
     return;
 }
 
+// Remove WooCommerce Subscriptions default subscription details
+add_filter('woocommerce_subscriptions_product_price_string', '__return_empty_string', 100);
+add_filter('woocommerce_subscription_price_string', '__return_empty_string', 100);
+
 // Remove any existing filters that might be causing duplicates
 remove_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 100);
 remove_filter('woocommerce_available_variation', 'custom_variation_subscription_price_display', 100);
 remove_filter('woocommerce_variable_subscription_price_html', 'custom_highest_variation_price_html', 10);
 remove_filter('woocommerce_variable_price_html', 'custom_highest_variation_price_html', 10);
 
+// Add our filters with priority 99 to ensure they override most plugins
+add_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 99, 2);
+add_filter('woocommerce_available_variation', 'custom_variation_subscription_price_display', 99, 3);
+add_filter('woocommerce_variable_subscription_price_html', 'custom_highest_variation_price_html', 99, 2);
+add_filter('woocommerce_variable_price_html', 'custom_highest_variation_price_html', 99, 2);
 
+// Add additional filters to catch all price display scenarios
+add_filter('woocommerce_subscription_price_html', 'custom_subscription_price_display', 99, 2);
+add_filter('woocommerce_variable_subscription_price_html', 'custom_subscription_price_display', 99, 2);
 
-// Add our filters with higher priority to ensure they run last
-add_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 999, 2);
-add_filter('woocommerce_available_variation', 'custom_variation_subscription_price_display', 999, 3);
-add_filter('woocommerce_variable_subscription_price_html', 'custom_highest_variation_price_html', 999, 2);
-add_filter('woocommerce_variable_price_html', 'custom_highest_variation_price_html', 999, 2);
+// Add a filter to clean up any remaining subscription details that get added
+add_filter('woocommerce_get_price_html', 'clean_subscription_price_html', 100, 2);
+
+function clean_subscription_price_html($price, $product) {
+    // Only clean subscription products
+    if (class_exists('WC_Subscriptions_Product') && WC_Subscriptions_Product::is_subscription($product)) {
+        // Remove duplicate subscription details if they exist
+        if (strpos($price, 'subscription-details') !== false) {
+            // Find all subscription-details spans and keep only the first one
+            $pattern = '/<span class="subscription-details">[^<]*<\/span>/';
+            preg_match_all($pattern, $price, $matches);
+            
+            if (count($matches[0]) > 1) {
+                // Replace all but the first occurrence
+                for ($i = 1; $i < count($matches[0]); $i++) {
+                    $price = str_replace($matches[0][$i], '', $price);
+                }
+            } elseif (count($matches[0]) == 1 && strpos($price, 'billing-description') !== false) {
+                // If we have our billing description, remove the subscription-details span entirely
+                $price = str_replace($matches[0][0], '', $price);
+            }
+        }
+    }
+    
+    return $price;
+}
 
 function custom_subscription_price_display($price, $product) {
     // Ensure WooCommerce Subscriptions functions are available
@@ -40,7 +73,7 @@ function custom_subscription_price_display($price, $product) {
         return $price;
     }
 
-    // Check if we've already modified this price
+    // Check if we've already modified this price or if subscription details exist
     if (strpos($price, 'billing-description') !== false) {
         return $price;
     }
@@ -113,8 +146,8 @@ function custom_variation_subscription_price_display($variation_data, $product, 
         return $variation_data;
     }
 
-    // Check if we've already modified this price
-    if (isset($variation_data['price_html']) && strpos($variation_data['price_html'], 'billing-description') !== false) {
+    // Check if we've already modified this price or if subscription details exist
+    if (isset($variation_data['price_html']) && (strpos($variation_data['price_html'], 'billing-description') !== false || strpos($variation_data['price_html'], 'subscription-details') !== false)) {
         return $variation_data;
     }
 
