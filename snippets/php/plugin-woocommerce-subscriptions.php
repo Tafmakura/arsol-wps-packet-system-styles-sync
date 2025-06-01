@@ -92,15 +92,16 @@ function custom_subscription_price_string($subscription_string, $product, $inclu
     
     // Add billing description
     if ($billing_description) {
-        $final_price .= '<div class="billing-description">' . $billing_description . '</div>';
+        $final_price .= '<div class="arsol-saas-for-woo-subscriptions-billing-description subscription-details woocommerce-price-suffix">' . $billing_description . '</div>';
     }
 
     // Add screen reader text
     if ($monthly_price > 0) {
-        $final_price .= '<div class="screen-reader-text">' . sprintf(__('Price: %s per month', 'woocommerce'), wc_price($monthly_price)) . '</div>';
+        $final_price .= '<div class="arsol-saas-for-woo-subscriptions-screen-reader-text screen-reader-text">' . sprintf(__('Price: %s per month', 'woocommerce'), wc_price($monthly_price)) . '</div>';
     }
 
-    return $final_price;
+    // Wrap everything in our container
+    return '<div class="arsol-saas-for-woo-subscriptions-price-container price woocommerce-price-amount">' . $final_price . '</div>';
 }
 
 // Handle variable subscription products - modify variation price display
@@ -168,15 +169,16 @@ function custom_variation_subscription_price_display($variation_data, $product, 
     
     // Add billing description
     if ($billing_description) {
-        $final_price .= '<div class="billing-description">' . $billing_description . '</div>';
+        $final_price .= '<div class="arsol-saas-for-woo-subscriptions-billing-description subscription-details woocommerce-price-suffix">' . $billing_description . '</div>';
     }
 
     // Add screen reader text
     if ($monthly_price > 0) {
-        $final_price .= '<div class="screen-reader-text">' . sprintf(__('Price: %s per month', 'woocommerce'), wc_price($monthly_price)) . '</div>';
+        $final_price .= '<div class="arsol-saas-for-woo-subscriptions-screen-reader-text screen-reader-text">' . sprintf(__('Price: %s per month', 'woocommerce'), wc_price($monthly_price)) . '</div>';
     }
 
-    $variation_data['price_html'] = $final_price;
+    // Wrap everything in our container and update the variation data
+    $variation_data['price_html'] = '<div class="arsol-saas-for-woo-subscriptions-price-container price woocommerce-price-amount">' . $final_price . '</div>';
     return $variation_data;
 }
 
