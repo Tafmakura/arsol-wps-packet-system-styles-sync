@@ -68,11 +68,11 @@ form label,
 .el-form-item__label /*Fluent Support*/,
 .fs_client_portal .fs_ticket_details_label /*Fluent Support*/,
 .fs_client_portal .el-form-item__label /*Fluent Support*/ {
-	font-size: var(--text-2xs)!important;
-	border-color: black!important;
-	margin-bottom: 0!important;
-	color: rgba(18, 18, 18, 0.7)!important;
-	font-weight: 300 !important;
+	font-size: var(--text-2xs);
+	border-color: black;
+	margin-bottom: 0;
+	color: rgba(18, 18, 18, 0.7);
+	font-weight: 300;
 }
 
 form span#account_display_name_description {
