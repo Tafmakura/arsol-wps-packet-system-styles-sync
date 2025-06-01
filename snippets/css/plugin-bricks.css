@@ -49,3 +49,8 @@ form.cart .single_add_to_cart_button {
   padding-bottom: 5px !important;
 }
 
+
+.ars_reset-nestable-tabs .tab-menu .tab-menu .brx-open {
+  background-color: var(--bg-secondary) !important;
+  border: 2px solid var(--edging-primary) !important;
+}
