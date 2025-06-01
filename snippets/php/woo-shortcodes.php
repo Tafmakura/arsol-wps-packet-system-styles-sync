@@ -61,7 +61,25 @@ function arsol_product_price_shortcode($atts) {
     );
     $product = wc_get_product($atts['id']);
     if (!$product) return '';
-    return $product->get_price_html();
+    
+    // Get the price HTML
+    $price_html = $product->get_price_html();
+    
+    // Remove duplicate subscription details if they exist
+    if (strpos($price_html, 'subscription-details') !== false) {
+        // Find all subscription-details spans and keep only the first one
+        $pattern = '/<span class="subscription-details">[^<]*<\/span>/';
+        preg_match_all($pattern, $price_html, $matches);
+        
+        if (count($matches[0]) > 1) {
+            // Replace all but the first occurrence
+            for ($i = 1; $i < count($matches[0]); $i++) {
+                $price_html = str_replace($matches[0][$i], '', $price_html);
+            }
+        }
+    }
+    
+    return $price_html;
 }
 add_shortcode('arsol-product-price', 'arsol_product_price_shortcode');
 
