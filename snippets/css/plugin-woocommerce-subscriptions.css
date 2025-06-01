@@ -4,7 +4,7 @@
 
 /* Variable Products */
 
-.form.cart table.variations,
+form.cart table.variations,
 .pewc-product-extra-groups-wrap .pewc-total-field-wrapper /* Plugin: Product Add Ons */ {
 	margin-bottom: 0;
 }
