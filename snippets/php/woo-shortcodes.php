@@ -62,21 +62,24 @@ function arsol_product_price_shortcode($atts) {
     $product = wc_get_product($atts['id']);
     if (!$product) return '';
     
-    // Get the price HTML
-    $price_html = $product->get_price_html();
-    
-    // Remove duplicate subscription details if they exist
-    if (strpos($price_html, 'subscription-details') !== false) {
-        // Find all subscription-details spans and keep only the first one
-        $pattern = '/<span class="subscription-details">[^<]*<\/span>/';
-        preg_match_all($pattern, $price_html, $matches);
+    // Ensure our subscription filters are loaded
+    if (class_exists('WC_Subscriptions_Product') && WC_Subscriptions_Product::is_subscription($product)) {
+        // Temporarily remove our filter to avoid conflicts
+        remove_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 999);
         
-        if (count($matches[0]) > 1) {
-            // Replace all but the first occurrence
-            for ($i = 1; $i < count($matches[0]); $i++) {
-                $price_html = str_replace($matches[0][$i], '', $price_html);
-            }
+        // Apply our custom subscription price display directly
+        $price_html = custom_subscription_price_display('', $product);
+        
+        // Re-add our filter
+        add_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 999, 2);
+        
+        // If our custom function didn't process it, fall back to default
+        if (empty($price_html)) {
+            $price_html = $product->get_price_html();
         }
+    } else {
+        // For non-subscription products, use default
+        $price_html = $product->get_price_html();
     }
     
     return $price_html;
