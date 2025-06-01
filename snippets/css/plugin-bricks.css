@@ -1,3 +1,14 @@
+
+/* Overides for glitches */
+
+.splide__track {
+  padding-bottom: 5px;
+}
+
+
+
+
+
 .woocommerce-order-details table td, 
 .woocommerce-order-details table th {
     line-height: 1.7;
@@ -64,3 +75,4 @@ form.cart .single_add_to_cart_button {
 .ars_solutions-table-of-contents .toc-list .toc-list-item  {
   margin-bottom: var(--space-xs);
 }
+
