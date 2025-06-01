@@ -15,66 +15,23 @@ if (!function_exists('wcs_is_subscription')) {
     return;
 }
 
-// Remove WooCommerce Subscriptions default subscription details
-add_filter('woocommerce_subscriptions_product_price_string', '__return_empty_string', 100);
+// Modify WooCommerce Subscriptions default price string to our custom format
+add_filter('woocommerce_subscriptions_product_price_string', 'custom_subscription_price_string', 99, 3);
 
-// Remove any existing filters that might be causing duplicates
-remove_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 100);
-remove_filter('woocommerce_available_variation', 'custom_variation_subscription_price_display', 100);
-remove_filter('woocommerce_variable_subscription_price_html', 'custom_highest_variation_price_html', 10);
-remove_filter('woocommerce_variable_price_html', 'custom_highest_variation_price_html', 10);
-
-// Add our filters with priority 99 to ensure they override most plugins
-add_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 99, 2);
-add_filter('woocommerce_available_variation', 'custom_variation_subscription_price_display', 99, 3);
-add_filter('woocommerce_variable_subscription_price_html', 'custom_highest_variation_price_html', 99, 2);
-add_filter('woocommerce_variable_price_html', 'custom_highest_variation_price_html', 99, 2);
-
-// Add additional filters to catch all price display scenarios
-add_filter('woocommerce_subscription_price_html', 'custom_subscription_price_display', 99, 2);
-add_filter('woocommerce_variable_subscription_price_html', 'custom_subscription_price_display', 99, 2);
-
-// Add a filter to clean up any remaining subscription details that get added
-add_filter('woocommerce_get_price_html', 'clean_subscription_price_html', 100, 2);
-
-function clean_subscription_price_html($price, $product) {
+function custom_subscription_price_string($subscription_string, $product, $include) {
     // Don't apply on single product pages, cart, and checkout
     if (is_product() || is_cart() || is_checkout()) {
-        return $price;
+        return $subscription_string;
     }
 
-    // Only clean subscription products that have our custom formatting
-    if (class_exists('WC_Subscriptions_Product') && 
-        WC_Subscriptions_Product::is_subscription($product) && 
-        strpos($price, 'billing-description') !== false) {
-        
-        // Remove only the subscription-details span if it exists alongside our billing description
-        $pattern = '/<span class="subscription-details">[^<]*<\/span>/';
-        $price = preg_replace($pattern, '', $price);
-    }
-    
-    return $price;
-}
-
-function custom_subscription_price_display($price, $product) {
-    // Ensure WooCommerce Subscriptions functions are available
-    if (!class_exists('WC_Subscriptions_Product')) {
-        return $price;
+    // Ensure we have a valid product object
+    if (!is_object($product) || !class_exists('WC_Subscriptions_Product')) {
+        return $subscription_string;
     }
 
     // Check if the product is a subscription
     if (!WC_Subscriptions_Product::is_subscription($product)) {
-        return $price;
-    }
-
-    // Don't apply on single product pages, cart, and checkout
-    if (is_product() || is_cart() || is_checkout()) {
-        return $price;
-    }
-
-    // Check if we've already modified this price or if subscription details exist
-    if (strpos($price, 'billing-description') !== false) {
-        return $price;
+        return $subscription_string;
     }
 
     // Get subscription details
@@ -108,6 +65,9 @@ function custom_subscription_price_display($price, $product) {
         $billing_description = $subscription_interval == 1 
             ? __('Billed every year', 'woocommerce') 
             : sprintf(__('Billed every %s years', 'woocommerce'), $subscription_interval);
+    } else {
+        // Fallback to original string for unsupported periods
+        return $subscription_string;
     }
 
     // Build the final price HTML
@@ -134,6 +94,9 @@ function custom_subscription_price_display($price, $product) {
     return $final_price;
 }
 
+// Handle variable subscription products - modify variation price display
+add_filter('woocommerce_available_variation', 'custom_variation_subscription_price_display', 99, 3);
+
 function custom_variation_subscription_price_display($variation_data, $product, $variation) {
     // Ensure WooCommerce Subscriptions functions are available
     if (!class_exists('WC_Subscriptions_Product')) {
@@ -142,11 +105,6 @@ function custom_variation_subscription_price_display($variation_data, $product, 
 
     // Check if the variation is a subscription
     if (!WC_Subscriptions_Product::is_subscription($variation)) {
-        return $variation_data;
-    }
-
-    // Check if we've already modified this price or if subscription details exist
-    if (isset($variation_data['price_html']) && (strpos($variation_data['price_html'], 'billing-description') !== false || strpos($variation_data['price_html'], 'subscription-details') !== false)) {
         return $variation_data;
     }
 
@@ -206,21 +164,4 @@ function custom_variation_subscription_price_display($variation_data, $product, 
 
     $variation_data['price_html'] = $final_price;
     return $variation_data;
-}
-
-function custom_highest_variation_price_html($price, $product) {
-    // Get all variation prices
-    $variation_prices = $product->get_variation_prices();
-
-    if (empty($variation_prices['price'])) {
-        return $price;
-    }
-
-    // Find the highest price from variations
-    $max_price = max($variation_prices['price']);
-
-    // Format the price in WooCommerce format
-    $price = sprintf(__('Highest: %s', 'woocommerce'), wc_price($max_price));
-
-    return $price;
 }
