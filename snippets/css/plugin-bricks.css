@@ -37,3 +37,8 @@ form.cart .single_add_to_cart_button {
 .tab-title .brxe-text-basic {
 	color: inherit;
 }
+
+
+.ars_reset-nestable-tabs .tab-content {
+	padding: none;
+}
