@@ -15,6 +15,9 @@ if (!function_exists('wcs_is_subscription')) {
     return;
 }
 
+// Remove WooCommerce Subscriptions default subscription details
+add_filter('woocommerce_subscriptions_product_price_string', '__return_empty_string', 100);
+
 // Remove any existing filters that might be causing duplicates
 remove_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 100);
 remove_filter('woocommerce_available_variation', 'custom_variation_subscription_price_display', 100);
