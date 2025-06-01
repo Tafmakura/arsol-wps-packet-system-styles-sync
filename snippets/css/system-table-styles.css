@@ -53,7 +53,7 @@ table td {
 
 /* WooCommerce */
 
-form.variations_form .woocommerce-variation-description, /* Plugin: WooCommerce Subscriptions */
+form.variations_form .woocommerce-variation-price, /* Plugin: WooCommerce Subscriptions */
 table.variations td.label label, /* Plugin: WooCommerce Subscriptions */
 table.subscription_details tbody tr td:first-child,
 .pewc-product-extra-groups-wrap .pewc-total-field-wrapper p span /* Plugin: WooCommerce Product Add-Ons Ultimate */
