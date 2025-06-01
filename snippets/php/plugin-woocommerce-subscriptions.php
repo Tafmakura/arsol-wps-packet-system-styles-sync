@@ -15,10 +15,6 @@ if (!function_exists('wcs_is_subscription')) {
     return;
 }
 
-// Remove WooCommerce Subscriptions default subscription details
-add_filter('woocommerce_subscriptions_product_price_string', '__return_empty_string', 100);
-add_filter('woocommerce_subscription_price_string', '__return_empty_string', 100);
-
 // Remove any existing filters that might be causing duplicates
 remove_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 100);
 remove_filter('woocommerce_available_variation', 'custom_variation_subscription_price_display', 100);
@@ -39,24 +35,14 @@ add_filter('woocommerce_variable_subscription_price_html', 'custom_subscription_
 add_filter('woocommerce_get_price_html', 'clean_subscription_price_html', 100, 2);
 
 function clean_subscription_price_html($price, $product) {
-    // Only clean subscription products
-    if (class_exists('WC_Subscriptions_Product') && WC_Subscriptions_Product::is_subscription($product)) {
-        // Remove duplicate subscription details if they exist
-        if (strpos($price, 'subscription-details') !== false) {
-            // Find all subscription-details spans and keep only the first one
-            $pattern = '/<span class="subscription-details">[^<]*<\/span>/';
-            preg_match_all($pattern, $price, $matches);
-            
-            if (count($matches[0]) > 1) {
-                // Replace all but the first occurrence
-                for ($i = 1; $i < count($matches[0]); $i++) {
-                    $price = str_replace($matches[0][$i], '', $price);
-                }
-            } elseif (count($matches[0]) == 1 && strpos($price, 'billing-description') !== false) {
-                // If we have our billing description, remove the subscription-details span entirely
-                $price = str_replace($matches[0][0], '', $price);
-            }
-        }
+    // Only clean subscription products that have our custom formatting
+    if (class_exists('WC_Subscriptions_Product') && 
+        WC_Subscriptions_Product::is_subscription($product) && 
+        strpos($price, 'billing-description') !== false) {
+        
+        // Remove only the subscription-details span if it exists alongside our billing description
+        $pattern = '/<span class="subscription-details">[^<]*<\/span>/';
+        $price = preg_replace($pattern, '', $price);
     }
     
     return $price;

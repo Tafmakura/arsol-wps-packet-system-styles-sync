@@ -52,7 +52,7 @@ function arsol_wps_packet_system_styles_add_woocommerce_subscriptions_php($php_o
     $php_options[] = array(
         'name' => 'Plugin: WooCommerce Subscriptions',
         'file' => __DIR__ . '/../snippets/php/plugin-woocommerce-subscriptions.php',
-        'priority' => 99998
+        'priority' => 99
     );
     return $php_options;
 }
