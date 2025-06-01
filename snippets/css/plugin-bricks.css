@@ -54,3 +54,13 @@ form.cart .single_add_to_cart_button {
   background-color: var(--bg-secondary) !important;
   border: 2px solid var(--edging-primary) !important;
 }
+
+/* Table of Contents */
+
+.ars_solutions-table-of-contents .toc-list .toc-list-item  {
+  margin-bottom: var(--space-s);
+}
+
+.ars_solutions-table-of-contents .toc-list .toc-list-item  {
+  margin-bottom: var(--space-m);
+}
