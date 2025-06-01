@@ -21,11 +21,15 @@ remove_filter('woocommerce_available_variation', 'custom_variation_subscription_
 remove_filter('woocommerce_variable_subscription_price_html', 'custom_highest_variation_price_html', 10);
 remove_filter('woocommerce_variable_price_html', 'custom_highest_variation_price_html', 10);
 
-// Add our filters with higher priority to ensure they run last
-add_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 999, 2);
-add_filter('woocommerce_available_variation', 'custom_variation_subscription_price_display', 999, 3);
-add_filter('woocommerce_variable_subscription_price_html', 'custom_highest_variation_price_html', 999, 2);
-add_filter('woocommerce_variable_price_html', 'custom_highest_variation_price_html', 999, 2);
+// Add our filters with priority 99 to ensure they override most plugins
+add_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 99, 2);
+add_filter('woocommerce_available_variation', 'custom_variation_subscription_price_display', 99, 3);
+add_filter('woocommerce_variable_subscription_price_html', 'custom_highest_variation_price_html', 99, 2);
+add_filter('woocommerce_variable_price_html', 'custom_highest_variation_price_html', 99, 2);
+
+// Add additional filters to catch all price display scenarios
+add_filter('woocommerce_subscription_price_html', 'custom_subscription_price_display', 99, 2);
+add_filter('woocommerce_variable_subscription_price_html', 'custom_subscription_price_display', 99, 2);
 
 function custom_subscription_price_display($price, $product) {
     // Ensure WooCommerce Subscriptions functions are available

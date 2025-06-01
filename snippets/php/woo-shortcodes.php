@@ -62,23 +62,13 @@ function arsol_product_price_shortcode($atts) {
     $product = wc_get_product($atts['id']);
     if (!$product) return '';
     
-    // Ensure our subscription filters are loaded
-    if (class_exists('WC_Subscriptions_Product') && WC_Subscriptions_Product::is_subscription($product)) {
-        // Temporarily remove our filter to avoid conflicts
-        remove_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 999);
-        
-        // Apply our custom subscription price display directly
-        $price_html = custom_subscription_price_display('', $product);
-        
-        // Re-add our filter
-        add_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 999, 2);
-        
-        // If our custom function didn't process it, fall back to default
-        if (empty($price_html)) {
-            $price_html = $product->get_price_html();
-        }
-    } else {
-        // For non-subscription products, use default
+    // Use WooCommerce template function for price display
+    ob_start();
+    wc_get_template('single-product/price.php');
+    $price_html = ob_get_clean();
+    
+    // If template method doesn't work, fallback to get_price_html()
+    if (empty($price_html)) {
         $price_html = $product->get_price_html();
     }
     
