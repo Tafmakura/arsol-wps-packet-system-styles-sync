@@ -24,7 +24,7 @@ form.variations_form .woocommerce-variation,
 	border-bottom: 1px solid rgb(221, 222, 223);
 }
 
-.woocommerce-Price-amount,
+form.variations_form  .woocommerce-Price-amount,
 .pewc-product-extra-groups-wrap .pewc-total-field-wrapper p:last-child span /* Plugin: Product Add Ons */ {
 	font-size: var(--text-xl) !important;
 }
