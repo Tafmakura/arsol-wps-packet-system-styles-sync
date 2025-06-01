@@ -19,12 +19,8 @@ if (!function_exists('wcs_is_subscription')) {
 add_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 100, 2);
 
 function custom_subscription_price_display($price, $product) {
-    // Debug log
-    error_log('Custom subscription price display called for product: ' . $product->get_id());
-    
     // Ensure WooCommerce Subscriptions functions are available
     if (!class_exists('WC_Subscriptions_Product')) {
-        error_log('WC_Subscriptions_Product class not found');
         return $price;
     }
 
@@ -32,8 +28,6 @@ function custom_subscription_price_display($price, $product) {
     if (!WC_Subscriptions_Product::is_subscription($product)) {
         return $price;
     }
-
-    error_log('Product is a subscription');
 
     // Get subscription details
     $subscription_period = WC_Subscriptions_Product::get_period($product);
@@ -68,32 +62,34 @@ function custom_subscription_price_display($price, $product) {
             : sprintf(__('Billed every %s years', 'woocommerce'), $subscription_interval);
     }
 
+    // Build the final price HTML
+    $final_price = '';
+    
+    // Add regular price if on sale
+    if ($regular_price_html) {
+        $final_price .= $regular_price_html;
+    }
+    
+    // Add the monthly price
+    $final_price .= $price;
+    
     // Add billing description
     if ($billing_description) {
-        $price .= '<div class="billing-description">' . $billing_description . '</div>';
+        $final_price .= '<div class="billing-description">' . $billing_description . '</div>';
     }
 
     // Add screen reader text
     if ($monthly_price > 0) {
-        $price .= '<div class="screen-reader-text">' . sprintf(__('Price: %s per month', 'woocommerce'), wc_price($monthly_price)) . '</div>';
+        $final_price .= '<div class="screen-reader-text">' . sprintf(__('Price: %s per month', 'woocommerce'), wc_price($monthly_price)) . '</div>';
     }
 
-    // Add regular price if on sale
-    if ($regular_price_html) {
-        $price = $regular_price_html . $price;
-    }
-
-    error_log('Final price display: ' . $price);
-    return $price;
+    return $final_price;
 }
 
 // Modify the variation price display for subscriptions
 add_filter('woocommerce_available_variation', 'custom_variation_subscription_price_display', 100, 3);
 
 function custom_variation_subscription_price_display($variation_data, $product, $variation) {
-    // Debug log
-    error_log('Custom variation subscription price display called for variation: ' . $variation->get_id());
-    
     // Ensure WooCommerce Subscriptions functions are available
     if (!class_exists('WC_Subscriptions_Product')) {
         return $variation_data;
@@ -103,8 +99,6 @@ function custom_variation_subscription_price_display($variation_data, $product, 
     if (!WC_Subscriptions_Product::is_subscription($variation)) {
         return $variation_data;
     }
-
-    error_log('Variation is a subscription');
 
     // Get subscription details
     $subscription_period = WC_Subscriptions_Product::get_period($variation);
@@ -139,22 +133,28 @@ function custom_variation_subscription_price_display($variation_data, $product, 
             : sprintf(__('Billed every %s years', 'woocommerce'), $subscription_interval);
     }
 
+    // Build the final price HTML
+    $final_price = '';
+    
+    // Add regular price if on sale
+    if ($regular_price_html) {
+        $final_price .= $regular_price_html;
+    }
+    
+    // Add the monthly price
+    $final_price .= $variation_data['price_html'];
+    
     // Add billing description
     if ($billing_description) {
-        $variation_data['price_html'] .= '<div class="billing-description">' . $billing_description . '</div>';
+        $final_price .= '<div class="billing-description">' . $billing_description . '</div>';
     }
 
     // Add screen reader text
     if ($monthly_price > 0) {
-        $variation_data['price_html'] .= '<div class="screen-reader-text">' . sprintf(__('Price: %s per month', 'woocommerce'), wc_price($monthly_price)) . '</div>';
+        $final_price .= '<div class="screen-reader-text">' . sprintf(__('Price: %s per month', 'woocommerce'), wc_price($monthly_price)) . '</div>';
     }
 
-    // Add regular price if on sale
-    if ($regular_price_html) {
-        $variation_data['price_html'] = $regular_price_html . $variation_data['price_html'];
-    }
-
-    error_log('Final variation price display: ' . $variation_data['price_html']);
+    $variation_data['price_html'] = $final_price;
     return $variation_data;
 }
 
@@ -163,9 +163,6 @@ add_filter('woocommerce_variable_subscription_price_html', 'custom_highest_varia
 add_filter('woocommerce_variable_price_html', 'custom_highest_variation_price_html', 10, 2);
 
 function custom_highest_variation_price_html($price, $product) {
-    // Debug log
-    error_log('Custom highest variation price display called for product: ' . $product->get_id());
-    
     // Get all variation prices
     $variation_prices = $product->get_variation_prices();
 
@@ -179,6 +176,5 @@ function custom_highest_variation_price_html($price, $product) {
     // Format the price in WooCommerce format
     $price = sprintf(__('Highest: %s', 'woocommerce'), wc_price($max_price));
 
-    error_log('Final highest price display: ' . $price);
     return $price;
 }
