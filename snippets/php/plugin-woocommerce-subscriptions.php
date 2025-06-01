@@ -19,10 +19,8 @@ if (!function_exists('wcs_is_subscription')) {
 add_filter('woocommerce_subscriptions_product_price_string', 'custom_subscription_price_string', 99, 3);
 
 function custom_subscription_price_string($subscription_string, $product, $include) {
-    // Show actual billing amounts on transactional pages
-    // Show monthly pricing everywhere else
-    if (is_product() || is_cart() || is_checkout() || is_account_page() || 
-        is_admin() || wp_doing_cron() || defined('DOING_EMAIL')) {
+    // Frontend only - exclude admin and show actual billing amounts on transactional pages
+    if (is_admin() || is_product() || is_cart() || is_checkout() || is_account_page()) {
         return $subscription_string;
     }
 
