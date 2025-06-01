@@ -35,6 +35,11 @@ add_filter('woocommerce_variable_subscription_price_html', 'custom_subscription_
 add_filter('woocommerce_get_price_html', 'clean_subscription_price_html', 100, 2);
 
 function clean_subscription_price_html($price, $product) {
+    // Don't apply on single product pages, cart, and checkout
+    if (is_product() || is_cart() || is_checkout()) {
+        return $price;
+    }
+
     // Only clean subscription products that have our custom formatting
     if (class_exists('WC_Subscriptions_Product') && 
         WC_Subscriptions_Product::is_subscription($product) && 
@@ -56,6 +61,11 @@ function custom_subscription_price_display($price, $product) {
 
     // Check if the product is a subscription
     if (!WC_Subscriptions_Product::is_subscription($product)) {
+        return $price;
+    }
+
+    // Don't apply on single product pages, cart, and checkout
+    if (is_product() || is_cart() || is_checkout()) {
         return $price;
     }
 
