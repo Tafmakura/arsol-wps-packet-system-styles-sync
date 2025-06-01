@@ -43,3 +43,9 @@ form.cart .single_add_to_cart_button {
 	padding: 0 !important;
   border: none !important;
 }
+
+.ars_reset-nestable-tabs .tab-menu .tab-title {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
+
