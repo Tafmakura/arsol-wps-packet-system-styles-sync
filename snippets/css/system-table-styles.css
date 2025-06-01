@@ -35,6 +35,8 @@ table th.el-table__cell .cell /* Fluent Support */ {
 }
 
 table td,
+form.cart .woocommerce-variation-price, /* Plugin: WooCommerce Subscriptions */
+form.woocommerce-cart-form .woocommerce-variation-price, /* Plugin: WooCommerce Subscriptions */
 .pewc-product-extra-groups-wrap .pewc-total-field-wrapper p /* Plugin: WooCommerce Product Add-Ons Ultimate */,
 table td.el-table__cell
 {
