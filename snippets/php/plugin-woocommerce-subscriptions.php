@@ -15,12 +15,21 @@ if (!function_exists('wcs_is_subscription')) {
     return;
 }
 
+/**
+ * Check if we should show actual billing amounts instead of monthly pricing
+ * 
+ * @return bool True if actual billing amounts should be shown
+ */
+function should_show_actual_billing_amounts() {
+    return is_admin() || is_product() || is_cart() || is_checkout() || is_account_page();
+}
+
 // Modify WooCommerce Subscriptions default price string to our custom format
 add_filter('woocommerce_subscriptions_product_price_string', 'custom_subscription_price_string', 99, 3);
 
 function custom_subscription_price_string($subscription_string, $product, $include) {
-    // Frontend only - exclude admin and show actual billing amounts on transactional pages
-    if (is_admin() || is_product() || is_cart() || is_checkout() || is_account_page()) {
+    // Show actual billing amounts on transactional pages, monthly pricing elsewhere
+    if (should_show_actual_billing_amounts()) {
         return $subscription_string;
     }
 
@@ -98,6 +107,11 @@ function custom_subscription_price_string($subscription_string, $product, $inclu
 add_filter('woocommerce_available_variation', 'custom_variation_subscription_price_display', 99, 3);
 
 function custom_variation_subscription_price_display($variation_data, $product, $variation) {
+    // Show actual billing amounts on transactional pages, monthly pricing elsewhere
+    if (should_show_actual_billing_amounts()) {
+        return $variation_data;
+    }
+
     // Ensure WooCommerce Subscriptions functions are available
     if (!class_exists('WC_Subscriptions_Product')) {
         return $variation_data;
