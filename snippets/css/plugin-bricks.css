@@ -58,5 +58,5 @@ form.cart .single_add_to_cart_button {
 /* Table of Contents */
 
 .ars_solutions-table-of-contents .toc-list .toc-list-item  {
-  margin-bottom: var(--space-s);
+  margin-bottom: var(--space-xs);
 }
