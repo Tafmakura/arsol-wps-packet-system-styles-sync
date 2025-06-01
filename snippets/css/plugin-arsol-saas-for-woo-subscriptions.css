@@ -1,3 +1,4 @@
 .arsol-saas-for-woo-subscriptions-billing-description {
-    font-size: var(--text-s);
+    font-size: var(--text-xs);
+    font-weight: initial;
 }
