@@ -66,14 +66,14 @@ function custom_subscription_price_string($subscription_string, $product, $inclu
         $monthly_price = (float)$product->get_price() / $subscription_interval;
         $price = sprintf(__('%s /mo', 'woocommerce'), wc_price($monthly_price));
         $billing_description = $subscription_interval == 1 
-            ? __('Billed every month', 'woocommerce') 
-            : sprintf(__('Billed every %s months', 'woocommerce'), $subscription_interval);
+            ? __('billed every month', 'woocommerce') 
+            : sprintf(__('billed every %s months', 'woocommerce'), $subscription_interval);
     } elseif ($subscription_period === 'year' && $subscription_interval >= 1) {
         $monthly_price = (float)$product->get_price() / ($subscription_interval * 12);
         $price = sprintf(__('%s /mo', 'woocommerce'), wc_price($monthly_price));
         $billing_description = $subscription_interval == 1 
-            ? __('Billed every year', 'woocommerce') 
-            : sprintf(__('Billed every %s years', 'woocommerce'), $subscription_interval);
+            ? __('billed every year', 'woocommerce') 
+            : sprintf(__('billed every %s years', 'woocommerce'), $subscription_interval);
     } else {
         // Fallback to original string for unsupported periods
         return $subscription_string;
@@ -146,14 +146,14 @@ function custom_variation_subscription_price_display($variation_data, $product, 
         $monthly_price = (float)$variation->get_price() / $subscription_interval;
         $variation_data['price_html'] = sprintf(__('%s /mo', 'woocommerce'), wc_price($monthly_price));
         $billing_description = $subscription_interval == 1 
-            ? __('Billed every month', 'woocommerce') 
-            : sprintf(__('Billed every %s months', 'woocommerce'), $subscription_interval);
+            ? __('billed every month', 'woocommerce') 
+            : sprintf(__('billed every %s months', 'woocommerce'), $subscription_interval);
     } elseif ($subscription_period === 'year' && $subscription_interval >= 1) {
         $monthly_price = (float)$variation->get_price() / ($subscription_interval * 12);
         $variation_data['price_html'] = sprintf(__('%s /mo', 'woocommerce'), wc_price($monthly_price));
         $billing_description = $subscription_interval == 1 
-            ? __('Billed every year', 'woocommerce') 
-            : sprintf(__('Billed every %s years', 'woocommerce'), $subscription_interval);
+            ? __('billed every year', 'woocommerce') 
+            : sprintf(__('billed every %s years', 'woocommerce'), $subscription_interval);
     }
 
     // Build the final price HTML
