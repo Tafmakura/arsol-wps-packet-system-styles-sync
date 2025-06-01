@@ -179,3 +179,26 @@ function custom_variation_subscription_price_display($variation_data, $product, 
     $variation_data['price_html'] = $final_price;
     return $variation_data;
 }
+
+// Enqueue SaaS for WooCommerce Subscriptions frontend styles
+add_action('wp_enqueue_scripts', 'enqueue_saas_woo_subscriptions_styles');
+
+function enqueue_saas_woo_subscriptions_styles() {
+    // Only load on frontend
+    if (is_admin()) {
+        return;
+    }
+    
+    $css_file = __DIR__ . '/../../snippet-includes/saas-for-woo-subscriptions/css/frontend.css';
+    $css_url = plugin_dir_url(__FILE__) . '../../snippet-includes/saas-for-woo-subscriptions/css/frontend.css';
+    
+    // Check if file exists before enqueuing
+    if (file_exists($css_file)) {
+        wp_enqueue_style(
+            'saas-woo-subscriptions-frontend',
+            $css_url,
+            array(),
+            filemtime($css_file) // Use file modification time as version for cache busting
+        );
+    }
+}
