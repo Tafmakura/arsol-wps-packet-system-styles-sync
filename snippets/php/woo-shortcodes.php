@@ -62,17 +62,8 @@ function arsol_product_price_shortcode($atts) {
     $product = wc_get_product($atts['id']);
     if (!$product) return '';
     
-    // Use WooCommerce template function for price display
-    ob_start();
-    wc_get_template('single-product/price.php');
-    $price_html = ob_get_clean();
-    
-    // If template method doesn't work, fallback to get_price_html()
-    if (empty($price_html)) {
-        $price_html = $product->get_price_html();
-    }
-    
-    return $price_html;
+    // Now our filters have maximum priority, so get_price_html() will use our custom formatting
+    return $product->get_price_html();
 }
 add_shortcode('arsol-product-price', 'arsol_product_price_shortcode');
 
