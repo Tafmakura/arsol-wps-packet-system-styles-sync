@@ -21,10 +21,6 @@ remove_filter('woocommerce_available_variation', 'custom_variation_subscription_
 remove_filter('woocommerce_variable_subscription_price_html', 'custom_highest_variation_price_html', 10);
 remove_filter('woocommerce_variable_price_html', 'custom_highest_variation_price_html', 10);
 
-// Remove WooCommerce Subscriptions default price display
-add_filter('woocommerce_subscriptions_product_price_string', '__return_empty_string', 999);
-add_filter('woocommerce_subscription_price_string', '__return_empty_string', 999);
-
 // Add our filters with higher priority to ensure they run last
 add_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 999, 2);
 add_filter('woocommerce_available_variation', 'custom_variation_subscription_price_display', 999, 3);
@@ -101,6 +97,9 @@ function custom_subscription_price_display($price, $product) {
         $final_price .= '<div class="screen-reader-text">' . sprintf(__('Price: %s per month', 'woocommerce'), wc_price($monthly_price)) . '</div>';
     }
 
+    // Add subscription details
+    $final_price .= '<span class="subscription-details"> / ' . $subscription_period . '</span>';
+
     return $final_price;
 }
 
@@ -173,6 +172,9 @@ function custom_variation_subscription_price_display($variation_data, $product, 
     if ($monthly_price > 0) {
         $final_price .= '<div class="screen-reader-text">' . sprintf(__('Price: %s per month', 'woocommerce'), wc_price($monthly_price)) . '</div>';
     }
+
+    // Add subscription details
+    $final_price .= '<span class="subscription-details"> / ' . $subscription_period . '</span>';
 
     $variation_data['price_html'] = $final_price;
     return $variation_data;
