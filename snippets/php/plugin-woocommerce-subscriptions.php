@@ -21,9 +21,7 @@ remove_filter('woocommerce_available_variation', 'custom_variation_subscription_
 remove_filter('woocommerce_variable_subscription_price_html', 'custom_highest_variation_price_html', 10);
 remove_filter('woocommerce_variable_price_html', 'custom_highest_variation_price_html', 10);
 
-// Remove WooCommerce Subscriptions default price display
-add_filter('woocommerce_subscriptions_product_price_string', '__return_empty_string', 999);
-add_filter('woocommerce_subscription_price_string', '__return_empty_string', 999);
+
 
 // Add our filters with higher priority to ensure they run last
 add_filter('woocommerce_get_price_html', 'custom_subscription_price_display', 999, 2);
