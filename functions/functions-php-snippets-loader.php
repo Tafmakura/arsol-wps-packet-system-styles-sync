@@ -14,6 +14,17 @@ function arsol_wps_packet_system_styles_add_account_funds_php($php_options) {
 }
 
 // Add Bricks PHP
+add_filter('arsol_wp_snippets_php_addon_files', 'arsol_wps_packet_system_styles_add_woo_shortcodes_php');
+function arsol_wps_packet_system_styles_add_woo_shortcodes_php($php_options) {
+    $php_options[] = array(
+        'name' => 'Plugin: Woo Shortcodes',
+        'file' => __DIR__ . '/../snippets/php/woo-shortcodes.php',
+        'priority' => 99
+    );
+    return $php_options;
+}
+
+// Add Bricks PHP
 add_filter('arsol_wp_snippets_php_addon_files', 'arsol_wps_packet_system_styles_add_bricks_php');
 function arsol_wps_packet_system_styles_add_bricks_php($php_options) {
     $php_options[] = array(
