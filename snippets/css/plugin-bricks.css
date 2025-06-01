@@ -41,4 +41,5 @@ form.cart .single_add_to_cart_button {
 
 .ars_reset-nestable-tabs .tab-content {
 	padding: 0 !important;
+  border: none !important;
 }
