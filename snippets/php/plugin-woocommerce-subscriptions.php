@@ -38,8 +38,8 @@ function custom_subscription_price_display($price, $product) {
         return $price;
     }
 
-    // Check if we've already modified this price
-    if (strpos($price, 'billing-description') !== false) {
+    // Check if we've already modified this price or if subscription details exist
+    if (strpos($price, 'billing-description') !== false || strpos($price, 'subscription-details') !== false) {
         return $price;
     }
 
@@ -97,9 +97,6 @@ function custom_subscription_price_display($price, $product) {
         $final_price .= '<div class="screen-reader-text">' . sprintf(__('Price: %s per month', 'woocommerce'), wc_price($monthly_price)) . '</div>';
     }
 
-    // Add subscription details
-    $final_price .= '<span class="subscription-details"> / ' . $subscription_period . '</span>';
-
     return $final_price;
 }
 
@@ -114,8 +111,8 @@ function custom_variation_subscription_price_display($variation_data, $product, 
         return $variation_data;
     }
 
-    // Check if we've already modified this price
-    if (isset($variation_data['price_html']) && strpos($variation_data['price_html'], 'billing-description') !== false) {
+    // Check if we've already modified this price or if subscription details exist
+    if (isset($variation_data['price_html']) && (strpos($variation_data['price_html'], 'billing-description') !== false || strpos($variation_data['price_html'], 'subscription-details') !== false)) {
         return $variation_data;
     }
 
@@ -172,9 +169,6 @@ function custom_variation_subscription_price_display($variation_data, $product, 
     if ($monthly_price > 0) {
         $final_price .= '<div class="screen-reader-text">' . sprintf(__('Price: %s per month', 'woocommerce'), wc_price($monthly_price)) . '</div>';
     }
-
-    // Add subscription details
-    $final_price .= '<span class="subscription-details"> / ' . $subscription_period . '</span>';
 
     $variation_data['price_html'] = $final_price;
     return $variation_data;
