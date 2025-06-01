@@ -66,6 +66,59 @@ function arsol_product_price_shortcode($atts) {
 add_shortcode('arsol-product-price', 'arsol_product_price_shortcode');
 
 /**
+ * Shortcode to display WooCommerce product title
+ * Usage: [arsol-product-title id=XXX]
+ * 
+ * @param array $atts Shortcode attributes
+ * @return string Product title HTML
+ */
+function arsol_product_title_shortcode($atts) {
+    // Parse attributes
+    $atts = shortcode_atts(
+        array(
+            'id' => 0,
+            'tag' => 'h2', // Default HTML tag for the title
+        ),
+        $atts,
+        'arsol-product-title'
+    );
+
+    // Get product
+    $product = wc_get_product($atts['id']);
+    
+    if (!$product) {
+        return '';
+    }
+
+    // Get the title
+    $title = $product->get_name();
+
+    // If it's a variation, append variation attributes to the title
+    if ($product->is_type('variation')) {
+        $variation_attributes = $product->get_attributes();
+        if (!empty($variation_attributes)) {
+            $variation_text = array();
+            foreach ($variation_attributes as $attribute => $value) {
+                $variation_text[] = wc_attribute_label(str_replace('attribute_', '', $attribute)) . ': ' . $value;
+            }
+            if (!empty($variation_text)) {
+                $title .= ' - ' . implode(', ', $variation_text);
+            }
+        }
+    }
+
+    // Create title HTML
+    $title_html = sprintf(
+        '<%1$s class="arsol-product-title">%2$s</%1$s>',
+        esc_attr($atts['tag']),
+        esc_html($title)
+    );
+    
+    return $title_html;
+}
+add_shortcode('arsol-product-title', 'arsol_product_title_shortcode');
+
+/**
  * Shortcode to display WooCommerce product page link
  * Usage: [arsol-product-link id=XXX text="View Product"]
  * 
