@@ -4,6 +4,11 @@
 
 /* Variable Products */
 
+form.cart .woocommerce-variation-price, 
+form.woocommerce-cart-form .woocommerce-variation-price {
+    margin: 0;
+}
+
 form.cart table.variations,
 .pewc-product-extra-groups-wrap .pewc-total-field-wrapper /* Plugin: Product Add Ons */ {
 	margin-bottom: 0;
