@@ -167,7 +167,7 @@ function arsol_wps_packet_system_styles_add_bricks_styles($css_options) {
         'file' => plugin_dir_url(__FILE__) . '../snippets/css/plugin-bricks.css',
         'context' => 'frontend',
         'position' => 'header',
-        'priority' => 99
+        'priority' => 9999999
     );
     return $css_options;
 }
