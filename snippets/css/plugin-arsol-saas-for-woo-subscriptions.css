@@ -3,8 +3,6 @@
 /* Billing interval styling - /mo text at 60% of price size */
 .arsol-saas-for-woo-subscriptions-billing-interval {
     font-size: 0.6em;
-    font-weight: initial;
-    opacity: 0.8;
 }
 
 /* Billing description styling - billed every year text */
