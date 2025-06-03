@@ -83,13 +83,13 @@ function custom_subscription_price_string($subscription_string, $product, $inclu
     $monthly_price = 0;
     if ($subscription_period === 'month' && $subscription_interval >= 1) {
         $monthly_price = (float)$product->get_price() / $subscription_interval;
-        $price = sprintf(__('%s /mo', 'woocommerce'), format_clean_price($monthly_price));
+        $price = format_clean_price($monthly_price) . '<span class="arsol-saas-for-woo-subscriptions-billing-interval">/mo</span>';
         $billing_description = $subscription_interval == 1 
             ? __('billed every month', 'woocommerce') 
             : sprintf(__('billed every %s months', 'woocommerce'), $subscription_interval);
     } elseif ($subscription_period === 'year' && $subscription_interval >= 1) {
         $monthly_price = (float)$product->get_price() / ($subscription_interval * 12);
-        $price = sprintf(__('%s /mo', 'woocommerce'), format_clean_price($monthly_price));
+        $price = format_clean_price($monthly_price) . '<span class="arsol-saas-for-woo-subscriptions-billing-interval">/mo</span>';
         $billing_description = $subscription_interval == 1 
             ? __('billed every year', 'woocommerce') 
             : sprintf(__('billed every %s years', 'woocommerce'), $subscription_interval);
@@ -163,13 +163,13 @@ function custom_variation_subscription_price_display($variation_data, $product, 
     $monthly_price = 0;
     if ($subscription_period === 'month' && $subscription_interval >= 1) {
         $monthly_price = (float)$variation->get_price() / $subscription_interval;
-        $variation_data['price_html'] = sprintf(__('%s /mo', 'woocommerce'), format_clean_price($monthly_price));
+        $variation_data['price_html'] = format_clean_price($monthly_price) . '<span class="arsol-saas-for-woo-subscriptions-billing-interval">/mo</span>';
         $billing_description = $subscription_interval == 1 
             ? __('billed every month', 'woocommerce') 
             : sprintf(__('billed every %s months', 'woocommerce'), $subscription_interval);
     } elseif ($subscription_period === 'year' && $subscription_interval >= 1) {
         $monthly_price = (float)$variation->get_price() / ($subscription_interval * 12);
-        $variation_data['price_html'] = sprintf(__('%s /mo', 'woocommerce'), format_clean_price($monthly_price));
+        $variation_data['price_html'] = format_clean_price($monthly_price) . '<span class="arsol-saas-for-woo-subscriptions-billing-interval">/mo</span>';
         $billing_description = $subscription_interval == 1 
             ? __('billed every year', 'woocommerce') 
             : sprintf(__('billed every %s years', 'woocommerce'), $subscription_interval);
