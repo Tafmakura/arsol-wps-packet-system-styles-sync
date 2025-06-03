@@ -24,6 +24,25 @@ function should_show_actual_billing_amounts() {
     return is_admin() || is_product() || is_cart() || is_checkout() || is_account_page();
 }
 
+/**
+ * Format price without unnecessary .00 decimals
+ * 
+ * @param float $price The price to format
+ * @return string Formatted price HTML
+ */
+function format_clean_price($price) {
+    // Round to 2 decimal places to avoid floating point issues
+    $price = round($price, 2);
+    
+    // If the price has .00 decimals, show without decimals
+    if ($price == floor($price)) {
+        return wc_price($price, array('decimals' => 0));
+    }
+    
+    // Otherwise show with decimals
+    return wc_price($price);
+}
+
 // Modify WooCommerce Subscriptions default price string to our custom format
 add_filter('woocommerce_subscriptions_product_price_string', 'custom_subscription_price_string', 99, 3);
 
@@ -57,20 +76,20 @@ function custom_subscription_price_string($subscription_string, $product, $inclu
         } elseif ($subscription_period === 'month') {
             $regular_price /= $subscription_interval;
         }
-        $regular_price_html = '<del>' . wc_price($regular_price) . '</del> ';
+        $regular_price_html = '<del>' . format_clean_price($regular_price) . '</del> ';
     }
 
     // Calculate monthly price
     $monthly_price = 0;
     if ($subscription_period === 'month' && $subscription_interval >= 1) {
         $monthly_price = (float)$product->get_price() / $subscription_interval;
-        $price = sprintf(__('%s /mo', 'woocommerce'), wc_price($monthly_price));
+        $price = sprintf(__('%s /mo', 'woocommerce'), format_clean_price($monthly_price));
         $billing_description = $subscription_interval == 1 
             ? __('billed every month', 'woocommerce') 
             : sprintf(__('billed every %s months', 'woocommerce'), $subscription_interval);
     } elseif ($subscription_period === 'year' && $subscription_interval >= 1) {
         $monthly_price = (float)$product->get_price() / ($subscription_interval * 12);
-        $price = sprintf(__('%s /mo', 'woocommerce'), wc_price($monthly_price));
+        $price = sprintf(__('%s /mo', 'woocommerce'), format_clean_price($monthly_price));
         $billing_description = $subscription_interval == 1 
             ? __('billed every year', 'woocommerce') 
             : sprintf(__('billed every %s years', 'woocommerce'), $subscription_interval);
@@ -97,7 +116,7 @@ function custom_subscription_price_string($subscription_string, $product, $inclu
 
     // Add screen reader text
     if ($monthly_price > 0) {
-        $final_price .= '<div class="arsol-saas-for-woo-subscriptions-screen-reader-text screen-reader-text">' . sprintf(__('Price: %s per month', 'woocommerce'), wc_price($monthly_price)) . '</div>';
+        $final_price .= '<div class="arsol-saas-for-woo-subscriptions-screen-reader-text screen-reader-text">' . sprintf(__('Price: %s per month', 'woocommerce'), format_clean_price($monthly_price)) . '</div>';
     }
 
     // Wrap everything in our container
@@ -137,20 +156,20 @@ function custom_variation_subscription_price_display($variation_data, $product, 
         } elseif ($subscription_period === 'month') {
             $regular_price /= $subscription_interval;
         }
-        $regular_price_html = '<del>' . wc_price($regular_price) . '</del> ';
+        $regular_price_html = '<del>' . format_clean_price($regular_price) . '</del> ';
     }
 
     // Calculate monthly price
     $monthly_price = 0;
     if ($subscription_period === 'month' && $subscription_interval >= 1) {
         $monthly_price = (float)$variation->get_price() / $subscription_interval;
-        $variation_data['price_html'] = sprintf(__('%s /mo', 'woocommerce'), wc_price($monthly_price));
+        $variation_data['price_html'] = sprintf(__('%s /mo', 'woocommerce'), format_clean_price($monthly_price));
         $billing_description = $subscription_interval == 1 
             ? __('billed every month', 'woocommerce') 
             : sprintf(__('billed every %s months', 'woocommerce'), $subscription_interval);
     } elseif ($subscription_period === 'year' && $subscription_interval >= 1) {
         $monthly_price = (float)$variation->get_price() / ($subscription_interval * 12);
-        $variation_data['price_html'] = sprintf(__('%s /mo', 'woocommerce'), wc_price($monthly_price));
+        $variation_data['price_html'] = sprintf(__('%s /mo', 'woocommerce'), format_clean_price($monthly_price));
         $billing_description = $subscription_interval == 1 
             ? __('billed every year', 'woocommerce') 
             : sprintf(__('billed every %s years', 'woocommerce'), $subscription_interval);
@@ -174,7 +193,7 @@ function custom_variation_subscription_price_display($variation_data, $product, 
 
     // Add screen reader text
     if ($monthly_price > 0) {
-        $final_price .= '<div class="arsol-saas-for-woo-subscriptions-screen-reader-text screen-reader-text">' . sprintf(__('Price: %s per month', 'woocommerce'), wc_price($monthly_price)) . '</div>';
+        $final_price .= '<div class="arsol-saas-for-woo-subscriptions-screen-reader-text screen-reader-text">' . sprintf(__('Price: %s per month', 'woocommerce'), format_clean_price($monthly_price)) . '</div>';
     }
 
     // Wrap everything in our container and update the variation data
