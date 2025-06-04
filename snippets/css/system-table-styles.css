@@ -1,11 +1,7 @@
 
 
 
-.arsol-table-header-button, /* Arsol Projects for Woo */
-.fs_client_portal .fs_tickets_header, /* Fluent Support */
-.fs_client_portal .fs_ticket_header, /* Fluent Support */	
-.fs_client_portal .fs_ticket_alert, /* Fluent Support */
-.fs_client_portal .fs_ticket_wrapper .fs_tickets_container .fs_ticket_heroarea .fs_tk_subject /* Fluent Support */
+.arsol-table-header-button /* Arsol Projects for Woo */
 {
 	border-bottom: 1px solid rgb(221, 222, 223) ;
 	padding: 0 ;
