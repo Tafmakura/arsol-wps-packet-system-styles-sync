@@ -65,6 +65,11 @@ a.fs_ticket_conversation:hover  .fs_ticket_title strong {
 	padding: 0 !important;
 }
 
+.fs_client_portal .fs_ticket_wrapper .fs_tickets_container .fs_tickets_table {
+	padding-bottom: var(--text-s) !important;
+	padding-top: var(--text-s) !important;
+}
+
 .fs_client_portal .fs_ticket_reply_box {
 	margin-bottom: var(--space-s) !important;
 }
