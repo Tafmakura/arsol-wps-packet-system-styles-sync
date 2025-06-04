@@ -56,16 +56,6 @@ a.fs_ticket_conversation:hover  .fs_ticket_title strong {
 	display: none !important;
 }
 
-.fs_client_portal .fs_tickets_header,
-.fs_client_portal .fs_ticket_header,
-.fs_client_portal .fs_ticket_alert,
-.fs_client_portal .fs_ticket_wrapper .fs_tickets_container .fs_ticket_heroarea .fs_tk_subject
-{
-	border-bottom: 0 !important;
-	padding: 0 !important;
-	margin-bottom: var(--space-s) !important;
-}
-
 .fs_client_portal .fs_ticket_reply_box {
 	margin-bottom: var(--space-s) !important;
 }

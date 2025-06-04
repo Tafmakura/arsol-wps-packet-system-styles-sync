@@ -12,7 +12,7 @@
 	margin-bottom: var(--space-s) !important;
 	display: flex; 
 	justify-content: 
-	flex-end; margin-bottom: var(--text-xs);
+	flex-end; margin-bottom: var(--text-s);
 }
 
 table {
