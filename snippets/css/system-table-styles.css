@@ -31,6 +31,7 @@ table td.el-table__cell .cell p.fs_ticket_preview /* Fluent Support */{
 }
 
 table .payment-method-actions,
+table .woocommerce-projects-table__cell-project-actions,
 table .woocommerce-orders-table__cell-order-actions,
 table .woocommerce-orders-table__cell-ars_order_actions,
 table .woocommerce-orders-table__cell-project-actions {
