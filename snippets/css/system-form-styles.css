@@ -1,3 +1,14 @@
+
+form h1,
+form h2,
+form h3,
+form h4,
+form h5,
+form h6 {
+	margin-bottom: var(--space-s);
+}
+
+
 form input[type="text"],
 form input[type="password"],
 form input[type="tel"],
