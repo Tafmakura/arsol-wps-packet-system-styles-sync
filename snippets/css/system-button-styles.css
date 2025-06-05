@@ -115,6 +115,7 @@ main form input[type="submit"]:not(:disabled):hover,
 
 .woocommerce table.woocommerce-orders-table a.order-actions-button,
 table .payment-method-actions a.button,
+table .woocommerce-projects-table__cell-project-actions a.button,
 table .woocommerce-orders-table__cell-order-actions a.button,
 table .woocommerce-orders-table__cell-ars_order_actions a.button,
 table .woocommerce-orders-table__cell-project-actions a.button {
@@ -125,6 +126,7 @@ table .woocommerce-orders-table__cell-project-actions a.button {
 
 .woocommerce table.woocommerce-orders-table a.order-actions-button:hover,
 .woocommerce table .payment-method-actions a.button:hover,
+.woocommerce table .woocommerce-projects-table__cell-project-actions a.button:hover,
 .woocommerce table .woocommerce-orders-table__cell-order-actions a.button:hover,
 .woocommerce table .woocommerce-orders-table__cell-ars_order_actions a.button:hover,
 .woocommerce table .woocommerce-orders-table__cell-project-actions a.button:hover {
